@@ -138,7 +138,7 @@
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Service/WalletService.php"><a href="files/src-service-walletservice.html"><abbr title="src/Service/WalletService.php">WalletService.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">20</span>
+    <span class="phpdocumentor-element-found-in__line">22</span>
 
     </aside>
 
@@ -178,6 +178,13 @@
 <dd>Paginator.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
+    <a href="classes/App-Service-WalletService.html#property_transactionRepository">$transactionRepository</a>
+    <span>
+                        &nbsp;: <a href="classes/App-Repository-TransactionRepository.html"><abbr title="\App\Repository\TransactionRepository">TransactionRepository</abbr></a>            </span>
+</dt>
+<dd>transaction repository.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -property -private">
     <a href="classes/App-Service-WalletService.html#property_walletRepository">$walletRepository</a>
     <span>
                         &nbsp;: <a href="classes/App-Repository-WalletRepository.html"><abbr title="\App\Repository\WalletRepository">WalletRepository</abbr></a>            </span>
@@ -192,11 +199,11 @@
 <dd>Constructor.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/App-Service-WalletService.html#method_delete">delete()</a>
+    <a href="classes/App-Service-WalletService.html#method_canBeDeleted">canBeDeleted()</a>
     <span>
-                                &nbsp;: void    </span>
+                                &nbsp;: bool    </span>
 </dt>
-<dd>Delete category.</dd>
+<dd>Can wallet be deleted?</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/App-Service-WalletService.html#method_getPaginatedList">getPaginatedList()</a>
@@ -240,7 +247,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Service/WalletService.php"><a href="files/src-service-walletservice.html"><abbr title="src/Service/WalletService.php">WalletService.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">30</span>
+    <span class="phpdocumentor-element-found-in__line">36</span>
 
     </aside>
 
@@ -265,6 +272,40 @@
             -private
                                                         "
 >
+    <h4 class="phpdocumentor-element__name" id="property_transactionRepository">
+        $transactionRepository
+        <a href="classes/App-Service-WalletService.html#property_transactionRepository" class="headerlink"><i class="fas fa-link"></i></a>
+        <span class="phpdocumentor-element__modifiers">
+                                </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Service/WalletService.php"><a href="files/src-service-walletservice.html"><abbr title="src/Service/WalletService.php">WalletService.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">32</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">transaction repository.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">private</span>
+        <span class="phpdocumentor-signature__type"><a href="classes/App-Repository-TransactionRepository.html"><abbr title="\App\Repository\TransactionRepository">TransactionRepository</abbr></a></span>
+    <span class="phpdocumentor-signature__name">$transactionRepository</span>
+    </code>
+
+    
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -private
+                                                        "
+>
     <h4 class="phpdocumentor-element__name" id="property_walletRepository">
         $walletRepository
         <a href="classes/App-Service-WalletService.html#property_walletRepository" class="headerlink"><i class="fas fa-link"></i></a>
@@ -274,7 +315,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Service/WalletService.php"><a href="files/src-service-walletservice.html"><abbr title="src/Service/WalletService.php">WalletService.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">25</span>
+    <span class="phpdocumentor-element-found-in__line">27</span>
 
     </aside>
 
@@ -312,7 +353,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Service/WalletService.php"><a href="files/src-service-walletservice.html"><abbr title="src/Service/WalletService.php">WalletService.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">38</span>
+    <span class="phpdocumentor-element-found-in__line">44</span>
 
     </aside>
 
@@ -320,7 +361,7 @@
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">__construct</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/App-Repository-WalletRepository.html"><abbr title="\App\Repository\WalletRepository">WalletRepository</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$walletRepository</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type"><abbr title="\Knp\Component\Pager\PaginatorInterface">PaginatorInterface</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$paginator</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                <span class="phpdocumentor-signature__name">__construct</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/App-Repository-WalletRepository.html"><abbr title="\App\Repository\WalletRepository">WalletRepository</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$walletRepository</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/App-Repository-TransactionRepository.html"><abbr title="\App\Repository\TransactionRepository">TransactionRepository</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$transactionRepository</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type"><abbr title="\Knp\Component\Pager\PaginatorInterface">PaginatorInterface</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$paginator</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
@@ -332,6 +373,14 @@
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>Wallet repository</p>
 </section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$transactionRepository</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/App-Repository-TransactionRepository.html"><abbr title="\App\Repository\TransactionRepository">TransactionRepository</abbr></a></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"></section>
 
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
@@ -359,22 +408,22 @@
             -public
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="method_delete">
-        delete()
-        <a href="classes/App-Service-WalletService.html#method_delete" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method_canBeDeleted">
+        canBeDeleted()
+        <a href="classes/App-Service-WalletService.html#method_canBeDeleted" class="headerlink"><i class="fas fa-link"></i></a>
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Service/WalletService.php"><a href="files/src-service-walletservice.html"><abbr title="src/Service/WalletService.php">WalletService.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">88</span>
+    <span class="phpdocumentor-element-found-in__line">99</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Delete category.</p>
+        <p class="phpdocumentor-summary">Can wallet be deleted?</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">delete</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/App-Entity-Wallet.html"><abbr title="\App\Entity\Wallet">Wallet</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$category</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+                <span class="phpdocumentor-signature__name">canBeDeleted</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/App-Entity-Wallet.html"><abbr title="\App\Entity\Wallet">Wallet</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$category</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
 
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
@@ -384,7 +433,7 @@
                 : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/App-Entity-Wallet.html"><abbr title="\App\Entity\Wallet">Wallet</abbr></a></span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Category entity</p>
+                    <section class="phpdocumentor-description"><p>Wallet entity</p>
 </section>
 
             </dd>
@@ -393,9 +442,11 @@
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">void</span>
+    <span class="phpdocumentor-signature__response_type">bool</span>
             &mdash;
-        
+            <section class="phpdocumentor-description"><p>Result</p>
+</section>
+
     
 </article>
                     <article
@@ -411,7 +462,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Service/WalletService.php"><a href="files/src-service-walletservice.html"><abbr title="src/Service/WalletService.php">WalletService.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">51</span>
+    <span class="phpdocumentor-element-found-in__line">60</span>
 
     </aside>
 
@@ -438,8 +489,7 @@
                 : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/App-Entity-User.html"><abbr title="\App\Entity\User">User</abbr></a></span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"></section>
-
+                
             </dd>
             </dl>
 
@@ -466,7 +516,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Service/WalletService.php"><a href="files/src-service-walletservice.html"><abbr title="src/Service/WalletService.php">WalletService.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">73</span>
+    <span class="phpdocumentor-element-found-in__line">82</span>
 
     </aside>
 

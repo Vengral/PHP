@@ -161,10 +161,23 @@ class OperationController extends AbstractController
     #[Route('/{id}/delete', name: 'operation_delete', requirements: ['id' => '[1-9]\d*'], methods: 'GET|DELETE')]
     public function delete(Request $request, Operation $operation): Response
     {
-        $form = $this->createForm(FormType::class, $operation, [
-            'method' => 'DELETE',
-            'action' => $this->generateUrl('operation_delete', ['id' => $operation->getId()]),
-        ]);
+        if (!$this->operationService->canBeDeleted($operation)) {
+            $this->addFlash(
+                'warning',
+                $this->translator->trans('message.operation_contains_transactions')
+            );
+
+            return $this->redirectToRoute('operation_index');
+        }
+
+        $form = $this->createForm(
+            FormType::class,
+            $operation,
+            [
+                'method' => 'DELETE',
+                'action' => $this->generateUrl('operation_delete', ['id' => $operation->getId()]),
+            ]
+        );
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

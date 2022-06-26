@@ -1,28 +1,21 @@
 <?php
-/**
- * Category Type list
- */
+
 namespace App\Tests\Forms;
 
 use App\Entity\Category;
 use App\Form\Type\CategoryType;
 use Symfony\Component\Form\Test\TypeTestCase;
 
-/**
- * class Category Type Test.
- */
 class CategoryTypeTest extends TypeTestCase
 {
-    /**
-     * Test Submit Valid
-     */
+
     public function testSubmitValidDate()
     {
         $time = new \DateTime('now');
         $formatData = [
             'name' => 'TestCategory',
             'createdAt' => $time,
-            'updatedAt' => $time,
+            'updatedAt' => $time
         ];
 
         $model = new Category();
@@ -37,4 +30,5 @@ class CategoryTypeTest extends TypeTestCase
 
         $this->assertEquals($expected, $model);
     }
+
 }

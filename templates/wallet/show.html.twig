@@ -36,6 +36,12 @@
                 {{ 'action.back_to_list'|trans }}
             </a>
         </p>
+            <a class="btn btn-primary"  href="{{ url('wallet_edit', {id: wallet.id}) }}" title="{{ 'action.edit'|trans }}">
+                {{ 'action.edit'|trans }}
+            </a>
+            <a class="btn btn-danger"  href="{{ url('wallet_delete', {id: wallet.id}) }}" title="{{ 'action.delete'|trans }}">
+                {{ 'action.delete'|trans }}
+            </a>
     {% else %}
         <p>
             {{ 'message.record_not_found'|trans }}

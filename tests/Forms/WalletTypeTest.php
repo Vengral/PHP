@@ -1,21 +1,13 @@
 <?php
-/**
- * Wallet Type test
- */
+
 namespace App\Tests\Forms;
 
 use App\Entity\Wallet;
 use App\Form\Type\WalletType;
 use Symfony\Component\Form\Test\TypeTestCase;
 
-/**
- * class Wallet Type test
- */
 class WalletTypeTest extends TypeTestCase
 {
-    /**
-     * Test submiit Validation
-     */
     public function testSubmitValidDate()
     {
         $time = new \DateTime('now');
@@ -23,7 +15,7 @@ class WalletTypeTest extends TypeTestCase
             'name' => 'TestWallet',
             'balance' => 2000,
             'createdAt' => $time,
-            'updatedAt' => $time,
+            'updatedAt' => $time
         ];
 
         $model = new Wallet();

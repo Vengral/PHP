@@ -1,7 +1,4 @@
 <?php
-/**
- * Category repository.
- */
 
 namespace App\Repository;
 
@@ -29,7 +26,7 @@ class CategoryRepository extends ServiceEntityRepository
      *
      * @constant int
      */
-    public const PAGINATOR_ITEMS_PER_PAGE = 20;
+    public const PAGINATOR_ITEMS_PER_PAGE = 10;
 
     /**
      * Constructor.
@@ -50,6 +47,23 @@ class CategoryRepository extends ServiceEntityRepository
     {
         return $this->getOrCreateQueryBuilder()
             ->select('partial category.{id, createdAt, updatedAt, name}')
+            ->orderBy('category.updatedAt', 'DESC');
+    }
+
+    /**
+     * Query records like name.
+     *
+     * @return QueryBuilder Query builder
+     */
+    public function queryLikeName(string $name): QueryBuilder
+    {
+        $qb = $this->getOrCreateQueryBuilder();
+
+        return $qb
+            ->select('partial category.{id, createdAt, updatedAt, name}')
+            ->where(
+                $qb->expr()->like('category.name', $qb->expr()->literal('%'.$name.'%'))
+            )
             ->orderBy('category.updatedAt', 'DESC');
     }
 
@@ -82,7 +96,7 @@ class CategoryRepository extends ServiceEntityRepository
      *
      * @return QueryBuilder Query builder
      */
-    private function getOrCreateQueryBuilder(QueryBuilder $queryBuilder = null): QueryBuilder
+    private function getOrCreateQueryBuilder(?QueryBuilder $queryBuilder = null): QueryBuilder
     {
         return $queryBuilder ?? $this->createQueryBuilder('category');
     }

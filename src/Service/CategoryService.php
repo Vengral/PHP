@@ -53,7 +53,7 @@ class CategoryService implements CategoryServiceInterface
      */
     public function getPaginatedList(int $page, ?string $name = null): PaginationInterface
     {
-        if (null === $name) {
+        if (null == $name) {
             return $this->paginator->paginate(
                 $this->categoryRepository->queryAll(),
                 $page,
@@ -75,7 +75,7 @@ class CategoryService implements CategoryServiceInterface
      */
     public function save(Category $category): void
     {
-        if (null === $category->getId()) {
+        if (null == $category->getId()) {
             $category->setCreatedAt(new DateTimeImmutable());
         }
         $category->setUpdatedAt(new DateTimeImmutable());

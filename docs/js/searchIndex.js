@@ -866,6 +866,16 @@ Search.appendIndex(
             "summary": "Setter\u0020for\u0020operation.",
             "url": "classes/App-Entity-Transaction.html#method_setOperation"
         },                {
+            "fqsen": "\\App\\Entity\\Transaction\u003A\u003AgetComment\u0028\u0029",
+            "name": "getComment",
+            "summary": "Getter\u0020for\u0020Comment.",
+            "url": "classes/App-Entity-Transaction.html#method_getComment"
+        },                {
+            "fqsen": "\\App\\Entity\\Transaction\u003A\u003AsetComment\u0028\u0029",
+            "name": "setComment",
+            "summary": "Setter\u0020for\u0020Comment.",
+            "url": "classes/App-Entity-Transaction.html#method_setComment"
+        },                {
             "fqsen": "\\App\\Entity\\Transaction\u003A\u003AgetTags\u0028\u0029",
             "name": "getTags",
             "summary": "",
@@ -875,6 +885,11 @@ Search.appendIndex(
             "name": "addTag",
             "summary": "",
             "url": "classes/App-Entity-Transaction.html#method_addTag"
+        },                {
+            "fqsen": "\\App\\Entity\\Transaction\u003A\u003AremoveTag\u0028\u0029",
+            "name": "removeTag",
+            "summary": "",
+            "url": "classes/App-Entity-Transaction.html#method_removeTag"
         },                {
             "fqsen": "\\App\\Entity\\Transaction\u003A\u003AgetAuthor\u0028\u0029",
             "name": "getAuthor",
@@ -1370,6 +1385,11 @@ Search.appendIndex(
             "name": "queryAll",
             "summary": "Query\u0020all\u0020records.",
             "url": "classes/App-Repository-CategoryRepository.html#method_queryAll"
+        },                {
+            "fqsen": "\\App\\Repository\\CategoryRepository\u003A\u003AqueryLikeName\u0028\u0029",
+            "name": "queryLikeName",
+            "summary": "Query\u0020records\u0020like\u0020name.",
+            "url": "classes/App-Repository-CategoryRepository.html#method_queryLikeName"
         },                {
             "fqsen": "\\App\\Repository\\CategoryRepository\u003A\u003Adelete\u0028\u0029",
             "name": "delete",
@@ -1883,7 +1903,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Service\\OperationService\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "Constructor.",
+            "summary": "",
             "url": "classes/App-Service-OperationService.html#method___construct"
         },                {
             "fqsen": "\\App\\Service\\OperationService\u003A\u003AgetPaginatedList\u0028\u0029",
@@ -1901,6 +1921,11 @@ Search.appendIndex(
             "summary": "Delete\u0020operation.",
             "url": "classes/App-Service-OperationService.html#method_delete"
         },                {
+            "fqsen": "\\App\\Service\\OperationService\u003A\u003AcanBeDeleted\u0028\u0029",
+            "name": "canBeDeleted",
+            "summary": "Can\u0020Payment\u0020be\u0020deleted\u003F",
+            "url": "classes/App-Service-OperationService.html#method_canBeDeleted"
+        },                {
             "fqsen": "\\App\\Service\\OperationService\u003A\u003A\u0024operationRepository",
             "name": "operationRepository",
             "summary": "Operation\u0020repository.",
@@ -1910,6 +1935,11 @@ Search.appendIndex(
             "name": "paginator",
             "summary": "Paginator.",
             "url": "classes/App-Service-OperationService.html#property_paginator"
+        },                {
+            "fqsen": "\\App\\Service\\OperationService\u003A\u003A\u0024transactionRepository",
+            "name": "transactionRepository",
+            "summary": "",
+            "url": "classes/App-Service-OperationService.html#property_transactionRepository"
         },                {
             "fqsen": "\\App\\Service\\OperationServiceInterface",
             "name": "OperationServiceInterface",
@@ -1951,10 +1981,20 @@ Search.appendIndex(
             "summary": "Delete\u0020category.",
             "url": "classes/App-Service-PaymentService.html#method_delete"
         },                {
+            "fqsen": "\\App\\Service\\PaymentService\u003A\u003AcanBeDeleted\u0028\u0029",
+            "name": "canBeDeleted",
+            "summary": "Can\u0020Payment\u0020be\u0020deleted\u003F",
+            "url": "classes/App-Service-PaymentService.html#method_canBeDeleted"
+        },                {
             "fqsen": "\\App\\Service\\PaymentService\u003A\u003A\u0024paymentRepository",
             "name": "paymentRepository",
             "summary": "Payment\u0020repository.",
             "url": "classes/App-Service-PaymentService.html#property_paymentRepository"
+        },                {
+            "fqsen": "\\App\\Service\\PaymentService\u003A\u003A\u0024transactionRepository",
+            "name": "transactionRepository",
+            "summary": "",
+            "url": "classes/App-Service-PaymentService.html#property_transactionRepository"
         },                {
             "fqsen": "\\App\\Service\\PaymentService\u003A\u003A\u0024paginator",
             "name": "paginator",
@@ -2000,6 +2040,16 @@ Search.appendIndex(
             "name": "delete",
             "summary": "Delete\u0020entity.",
             "url": "classes/App-Service-TagService.html#method_delete"
+        },                {
+            "fqsen": "\\App\\Service\\TagService\u003A\u003AfindOneByName\u0028\u0029",
+            "name": "findOneByName",
+            "summary": "Find\u0020by\u0020name.",
+            "url": "classes/App-Service-TagService.html#method_findOneByName"
+        },                {
+            "fqsen": "\\App\\Service\\TagService\u003A\u003AfindOneById\u0028\u0029",
+            "name": "findOneById",
+            "summary": "Find\u0020by\u0020name.",
+            "url": "classes/App-Service-TagService.html#method_findOneById"
         },                {
             "fqsen": "\\App\\Service\\TagService\u003A\u003A\u0024tagRepository",
             "name": "tagRepository",
@@ -2156,15 +2206,20 @@ Search.appendIndex(
             "summary": "Save\u0020entity.",
             "url": "classes/App-Service-WalletService.html#method_save"
         },                {
-            "fqsen": "\\App\\Service\\WalletService\u003A\u003Adelete\u0028\u0029",
-            "name": "delete",
-            "summary": "Delete\u0020category.",
-            "url": "classes/App-Service-WalletService.html#method_delete"
+            "fqsen": "\\App\\Service\\WalletService\u003A\u003AcanBeDeleted\u0028\u0029",
+            "name": "canBeDeleted",
+            "summary": "Can\u0020wallet\u0020be\u0020deleted\u003F",
+            "url": "classes/App-Service-WalletService.html#method_canBeDeleted"
         },                {
             "fqsen": "\\App\\Service\\WalletService\u003A\u003A\u0024walletRepository",
             "name": "walletRepository",
             "summary": "Wallet\u0020repository.",
             "url": "classes/App-Service-WalletService.html#property_walletRepository"
+        },                {
+            "fqsen": "\\App\\Service\\WalletService\u003A\u003A\u0024transactionRepository",
+            "name": "transactionRepository",
+            "summary": "transaction\u0020repository.",
+            "url": "classes/App-Service-WalletService.html#property_transactionRepository"
         },                {
             "fqsen": "\\App\\Service\\WalletService\u003A\u003A\u0024paginator",
             "name": "paginator",

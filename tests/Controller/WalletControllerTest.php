@@ -6,23 +6,17 @@
 namespace App\Tests\Controller;
 
 use App\Entity\Enum\UserRole;
-use App\Entity\User;
 use App\Entity\Wallet;
 use App\Repository\WalletRepository;
 use App\Tests\WebBaseTestCase;
-use Symfony\Bundle\FrameworkBundle\KernelBrowser;
-use Symfony\Component\BrowserKit\Cookie;
-use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
+use DateTime;
 
 /**
  * Class WalletControllerTest.
  */
 class WalletControllerTest extends WebBaseTestCase
 {
-    /**
-     * Test client.
-     */
-    private KernelBrowser $httpClient;
+
 
     /**
      * Set up tests.
@@ -38,8 +32,9 @@ class WalletControllerTest extends WebBaseTestCase
     public function testIndexRouteAnonymousUser(): void
     {
         // given
-        $expectedStatusCode = 302;
-
+        $expectedStatusCode = 200;
+        $user = $this->createUser([UserRole::ROLE_ADMIN->value], 'walletindexuser@example.com');
+        $this->logIn($user);
         // when
         $this->httpClient->request('GET', '/wallet');
         $resultStatusCode = $this->httpClient->getResponse()->getStatusCode();
@@ -53,7 +48,7 @@ class WalletControllerTest extends WebBaseTestCase
      */
     public function testIndexRouteAdminUser(): void
     {
-        $expectedStatusCode = 302;
+        $expectedStatusCode = 301;
         $adminUser = $this->createUser([UserRole::ROLE_USER->value, UserRole::ROLE_ADMIN->value], 'user432@example.com');
         $this->httpClient->loginUser($adminUser);
 
@@ -71,19 +66,31 @@ class WalletControllerTest extends WebBaseTestCase
     public function testCreateWalletAdminUser(): void
     {
         // given
-        $expectedStatusCode = 301;
-        $admin = $this->createUser(['ROLE_ADMIN', 'ROLE_USER'], 'user123@example.com');
-        $this->logIn($admin);
+        $user = $this->createUser([UserRole::ROLE_USER->value],
+            'wallet_created_user1@example.com');
+        $this->httpClient->loginUser($user);
+        $expected = "name";
+        $walletRepository = self::getContainer()->get(WalletRepository::class);
         // when
-        $this->httpClient->request('GET', '/wallet/create/');
-        $resultStatusCode = $this->httpClient->getResponse()->getStatusCode();
+        $this->httpClient->request('GET', '/wallet/create');
 
-        // then
-        $this->assertEquals($expectedStatusCode, $resultStatusCode);
+        $this->httpClient->submitForm(
+            'utworzenie',
+            ['wallet' =>
+                [
+                    'name' => $expected,
+                    'balance' => 300,
+                ]
+            ]
+        );
+
+        $this->assertEquals($expected, $walletRepository->findOneByName($expected)->getName());
+
     }
 
+
     /**
-     * Test Index Route Non Authorized User.
+     * Test index route for non authorized user FOR NEW Wallet.
      */
     public function testIndexRouteNonAuthorizedUser(): void
     {
@@ -101,46 +108,40 @@ class WalletControllerTest extends WebBaseTestCase
     }
 
     /**
-     * Test Edit Wallet.
+     * @return void
      */
     public function testEditWallet(): void
     {
-        // create category
+        // given
+        $user = $this->createUser([UserRole::ROLE_USER->value],
+            'wallet_created_user2@example.com');
+        $this->httpClient->loginUser($user);
         $wallet = new Wallet();
         $wallet->setName('TestWallet123');
-        $wallet->setCreatedAt(new \DateTime('now'));
-        $wallet->setUpdatedAt(new \DateTime('now'));
-        $wallet->setUser($this->createUser([UserRole::ROLE_USER->value], 'user1235@example.com'));
+        $wallet->setUser($user );
         $wallet->setBalance(2000);
-        $walletRepository = self::$container->get(WalletRepository::class);
+        $walletRepository = self::getContainer()->get(WalletRepository::class);
         $walletRepository->save($wallet);
-
         $expected = 'TestChangedWallet123.';
-        // change name
-        $wallet->setName('TestChangedWallet123.');
-        $wallet->setBalance(3000);
-        $walletRepository->save($wallet);
+        // when
+
+        $this->httpClient->request('GET', '/wallet/' .
+            $wallet->getId() . '/edit');
+
+        $this->httpClient->submitForm(
+            'Edytuj',
+            ['wallet' =>
+                [
+                    'name' => $expected,
+                    'balance' => 300,
+                ]
+            ]
+        );
 
         $this->assertEquals($expected, $walletRepository->findOneByName($expected)->getName());
+
     }
 
-    /**
-     * Simulate user log in.
-     *
-     * @param User $user User entity
-     */
-    private function logIn(User $user): void
-    {
-        $session = self::$container->get('session');
 
-        $firewallName = 'main';
-        $firewallContext = 'main';
 
-        $token = new UsernamePasswordToken($user, null, $firewallName, $user->getRoles());
-        $session->set('_security_'.$firewallContext, serialize($token));
-        $session->save();
-
-        $cookie = new Cookie($session->getName(), $session->getId());
-        $this->httpClient->getCookieJar()->set($cookie);
-    }
 }

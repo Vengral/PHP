@@ -32,14 +32,10 @@
                 {{ 'action.back_to_list'|trans }}
             </a>
         </p>
-        <div class="btn btn-light">
             <a class="btn btn-primary" href="{{ url('operation_edit', {id: operation.id}) }}" title="{{ 'action.edit'|trans }}">
                 {{ 'action.edit'|trans }}</a>
-        </div>
-        <div class="btn btn-light">
             <a class="btn btn-danger" href="{{ url('operation_delete', {id: operation.id}) }}" title="{{ 'action.delete'|trans }}">
                 {{ 'action.delete'|trans }}</a>
-        </div>
     {% else %}
         <p>
             {{ 'message.record_not_found'|trans }}

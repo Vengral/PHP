@@ -11,6 +11,8 @@ use App\Entity\Wallet;
 use App\Repository\TransactionRepository;
 use App\Repository\WalletRepository;
 use DateTimeImmutable;
+use Doctrine\ORM\NonUniqueResultException;
+use Doctrine\ORM\NoResultException;
 use Knp\Component\Pager\Pagination\PaginationInterface;
 use Knp\Component\Pager\PaginatorInterface;
 
@@ -25,6 +27,10 @@ class WalletService implements WalletServiceInterface
     private WalletRepository $walletRepository;
 
     /**
+     * transaction repository.
+     */
+    private TransactionRepository $transactionRepository;
+    /**
      * Paginator.
      */
     private PaginatorInterface $paginator;
@@ -35,9 +41,10 @@ class WalletService implements WalletServiceInterface
      * @param WalletRepository   $walletRepository Wallet repository
      * @param PaginatorInterface $paginator        Paginator
      */
-    public function __construct(WalletRepository $walletRepository, PaginatorInterface $paginator)
+    public function __construct(WalletRepository $walletRepository, TransactionRepository $transactionRepository, PaginatorInterface $paginator)
     {
         $this->walletRepository = $walletRepository;
+        $this->transactionRepository = $transactionRepository;
         $this->paginator = $paginator;
     }
 
@@ -72,7 +79,7 @@ class WalletService implements WalletServiceInterface
      */
     public function save(Wallet $wallet): void
     {
-        if (null === $wallet->getId()) {
+        if (null == $wallet->getId()) {
             $wallet->setCreatedAt(new DateTimeImmutable());
         }
         $wallet->setUpdatedAt(new DateTimeImmutable());
@@ -81,12 +88,20 @@ class WalletService implements WalletServiceInterface
     }
 
     /**
-     * Delete category.
+     * Can wallet be deleted?
      *
-     * @param Wallet $category Category entity
+     * @param Wallet $category Wallet entity
+     *
+     * @return bool Result
      */
-    public function delete(Wallet $category): void
+    public function canBeDeleted(Wallet $category): bool
     {
-        $this->walletRepository->delete($category);
+        try {
+            $result = $this->transactionRepository->countByWallet($category);
+
+            return !($result > 0);
+        } catch (NoResultException|NonUniqueResultException) {
+            return false;
+        }
     }
 }

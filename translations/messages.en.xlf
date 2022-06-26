@@ -26,6 +26,18 @@
                 <source>message.empty_list</source>
                 <target>Empty list.</target>
             </trans-unit>
+            <trans-unit id="message.operation_contains_transactions">
+                <source>message.operation_contains_transactions</source>
+                <target>operation contains transactionss</target>
+            </trans-unit>
+            <trans-unit id="message.payment_contains_transactions">
+                <source>message.payment_contains_transactions</source>
+                <target>payment contains transactions</target>
+            </trans-unit>
+            <trans-unit id="message.wallet_contains_transactions">
+                <source>message.wallet_contains_transactions</source>
+                <target>wallet contains transactions</target>
+            </trans-unit>
             <trans-unit id="title.category_details">
                 <source>title.category_details</source>
                 <target>Task details #%id%</target>

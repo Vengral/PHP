@@ -115,7 +115,7 @@
             </trans-unit>
             <trans-unit id="title.wallet_edit">
                 <source>title.wallet_edit</source>
-                <target>Edytuj portfel</target>
+                <target>Edytuj</target>
             </trans-unit>
             <trans-unit id="label.balance">
                      <source>label.balance</source>
@@ -139,7 +139,7 @@
             </trans-unit>
             <trans-unit id="title.wallet_delete">
                     <source>title.wallet_delete</source>
-                    <target>Portfel szczegóły</target>
+                    <target>Czy chcesz usunąć portfel?</target>
             </trans-unit>
             <trans-unit id="title.wallet_create">
                     <source>title.wallet_create</source>
@@ -287,7 +287,7 @@
             </trans-unit>
             <trans-unit id="message.category_contains_transactions">
                 <source>message.category_contains_transactions</source>
-                <target>Pzypisano do transakcji.</target>
+                <target>Nie można usunąć, kategoria jest przypisana do transakcji.</target>
             </trans-unit>
             <trans-unit id="title.transaction_edit">
                 <source>title.transaction_edit</source>
@@ -315,7 +315,7 @@
             </trans-unit>
             <trans-unit id="message.created_successfully">
                 <source>message.created_successfully</source>
-                <target>Dodano</target>
+                <target>Wykonano</target>
             </trans-unit>
             <trans-unit id="title.payment_edit">
                 <source>title.payment_edit</source>
@@ -344,24 +344,34 @@
             </trans-unit>
             <trans-unit id="message.edited_successfully">
                 <source>message.edited_successfully</source>
-                <target>udana edycja</target>
+                <target>Edytowano</target>
             </trans-unit>
 
             <trans-unit id="action_create">
                 <source>action_create</source>
-                <target>utworzenie</target>
+                <target>Utwórz</target>
             </trans-unit>
 
             <trans-unit id="message.record_not_found">
                 <source>message.record_not_found</source>
                 <target>Nie znaleziono</target>
             </trans-unit>
-
+            <trans-unit id="message.operation_contains_transactions">
+                <source>message.operation_contains_transactions</source>
+                <target>Operacja zawiera transakcje</target>
+            </trans-unit>
+            <trans-unit id="message.wallet_contains_transactions">
+                <source>message.wallet_contains_transactions</source>
+                <target>Nie można usunąć, portfel zawiera transakcje.</target>
+            </trans-unit>
             <trans-unit id="action_logout">
                 <source>action_logout</source>
                 <target>wyloguj</target>
             </trans-unit>
-
+            <trans-unit id="message.payment_contains_transactions">
+                <source>message.payment_contains_transactions</source>
+                <target>Nie można usunąć</target>
+            </trans-unit>
             <trans-unit id="action_login">
                 <source>action_login</source>
                 <target>zaloguj</target>

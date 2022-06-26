@@ -8,10 +8,10 @@ namespace App\Controller;
 use App\Entity\Category;
 use App\Form\Type\CategoryType;
 use App\Service\CategoryServiceInterface;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\FormType;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
@@ -25,7 +25,6 @@ class CategoryController extends AbstractController
      * Category service.
      */
     private CategoryServiceInterface $categoryService;
-
     /**
      * Translator.
      */
@@ -95,10 +94,8 @@ class CategoryController extends AbstractController
         $category = new Category();
         $form = $this->createForm(CategoryType::class, $category);
         $form->handleRequest($request);
-
         if ($form->isSubmitted() && $form->isValid()) {
             $this->categoryService->save($category);
-
             $this->addFlash(
                 'success',
                 $this->translator->trans('message.created_successfully')
@@ -129,10 +126,8 @@ class CategoryController extends AbstractController
             'action' => $this->generateUrl('category_edit', ['id' => $category->getId()]),
         ]);
         $form->handleRequest($request);
-
         if ($form->isSubmitted() && $form->isValid()) {
             $this->categoryService->save($category);
-
             $this->addFlash(
                 'success',
                 $this->translator->trans('message.created_successfully')

@@ -6,8 +6,12 @@
 namespace App\Service;
 
 use App\Entity\Operation;
+use App\Repository\CategoryRepository;
 use App\Repository\OperationRepository;
+use App\Repository\TransactionRepository;
 use DateTimeImmutable;
+use Doctrine\ORM\NonUniqueResultException;
+use Doctrine\ORM\NoResultException;
 use Knp\Component\Pager\Pagination\PaginationInterface;
 use Knp\Component\Pager\PaginatorInterface;
 
@@ -26,14 +30,11 @@ class OperationService implements OperationServiceInterface
      */
     private PaginatorInterface $paginator;
 
-    /**
-     * Constructor.
-     *
-     * @param OperationRepository $operationRepository Operation repository
-     * @param PaginatorInterface  $paginator           Paginator
-     */
-    public function __construct(OperationRepository $operationRepository, PaginatorInterface $paginator)
+    private TransactionRepository $transactionRepository;
+
+    public function __construct(OperationRepository $operationRepository, TransactionRepository $transactionRepository, PaginatorInterface $paginator)
     {
+        $this->transactionRepository = $transactionRepository;
         $this->operationRepository = $operationRepository;
         $this->paginator = $paginator;
     }
@@ -45,12 +46,20 @@ class OperationService implements OperationServiceInterface
      *
      * @return PaginationInterface<string, mixed> Paginated list
      */
-    public function getPaginatedList(int $page): PaginationInterface
+    public function getPaginatedList(int $page, ?string $name = null): PaginationInterface
     {
+        if (null == $name) {
+            return $this->paginator->paginate(
+                $this->operationRepository->queryAll(),
+                $page,
+                CategoryRepository::PAGINATOR_ITEMS_PER_PAGE
+            );
+        }
+
         return $this->paginator->paginate(
-            $this->operationRepository->queryAll(),
+            $this->operationRepository->queryLikeName($name),
             $page,
-            OperationRepository::PAGINATOR_ITEMS_PER_PAGE
+            CategoryRepository::PAGINATOR_ITEMS_PER_PAGE
         );
     }
 
@@ -61,7 +70,7 @@ class OperationService implements OperationServiceInterface
      */
     public function save(Operation $operation): void
     {
-        if (null === $operation->getId()) {
+        if (null == $operation->getId()) {
             $operation->setCreatedAt(new DateTimeImmutable());
         }
         $operation->setUpdatedAt(new DateTimeImmutable());
@@ -77,5 +86,23 @@ class OperationService implements OperationServiceInterface
     public function delete(Operation $operation): void
     {
         $this->operationRepository->delete($operation);
+    }
+
+    /**
+     * Can Payment be deleted?
+     *
+     * @param Operation $category Operation entity
+     *
+     * @return bool Result
+     */
+    public function canBeDeleted(Operation $category): bool
+    {
+        try {
+            $result = $this->transactionRepository->countByOperation($category);
+
+            return !($result > 0);
+        } catch (NoResultException|NonUniqueResultException) {
+            return false;
+        }
     }
 }

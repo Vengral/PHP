@@ -1,38 +1,34 @@
 <?php
 /**
- * Category Controller test.
+ * Transaction Controller test.
  */
 
 namespace App\Tests\Controller;
 
-use App\Entity\Category;
 use App\Entity\Enum\UserRole;
-use App\Entity\Operation;
-use App\Entity\Payment;
-use App\Entity\Tag;
 use App\Entity\Transaction;
-use App\Entity\User;
-use App\Entity\Wallet;
-use App\Repository\CategoryRepository;
-use App\Repository\OperationRepository;
-use App\Repository\PaymentRepository;
-use App\Repository\TagRepository;
 use App\Repository\TransactionRepository;
-use App\Repository\WalletRepository;
 use App\Tests\WebBaseTestCase;
-use Symfony\Bundle\FrameworkBundle\KernelBrowser;
-use Symfony\Component\BrowserKit\Cookie;
-use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
+use DateTime;
+use Doctrine\ORM\OptimisticLockException;
+use Doctrine\ORM\ORMException;
+use Psr\Container\ContainerExceptionInterface;
+use Psr\Container\NotFoundExceptionInterface;
 
 /**
- * Class CategoryControllerTest.
+ * Class TransactionControllerTest.
  */
 class TransactionControllerTest extends WebBaseTestCase
 {
     /**
-     * Test client.
+     * Test route.
+     *
+     * @const string
      */
-    private KernelBrowser $httpClient;
+    public const TEST_ROUTE = '/transaction';
+
+    public $date;
+
 
     /**
      * Set up tests.
@@ -40,18 +36,29 @@ class TransactionControllerTest extends WebBaseTestCase
     public function setUp(): void
     {
         $this->httpClient = static::createClient();
+        $time = time();
+        $this->date = [
+            'year' => (int)date('Y', $time),
+            'month' => (int)date('m', $time),
+            'day' => (int)date('d', $time),
+        ];
     }
 
     /**
-     * Test index route for anonymous user.
+     * @return void
      */
     public function testIndexRouteAnonymousUser(): void
     {
         // given
-        $expectedStatusCode = 302;
-
+        $user = null;
+        $expectedStatusCode = 200;
+        try {
+            $user = $this->createUser([UserRole::ROLE_ADMIN->value], 'transactionindexuser@example.com');
+        } catch (OptimisticLockException|NotFoundExceptionInterface|ContainerExceptionInterface|ORMException $e) {
+        }
+        $this->logIn($user);
         // when
-        $this->httpClient->request('GET', '/transaction/');
+        $this->httpClient->request('GET', self::TEST_ROUTE);
         $resultStatusCode = $this->httpClient->getResponse()->getStatusCode();
 
         // then
@@ -59,243 +66,184 @@ class TransactionControllerTest extends WebBaseTestCase
     }
 
     /**
-     * Test index route for anonymous user.
+     * Test index route for admin user.
+     *
+     * @throws ContainerExceptionInterface|NotFoundExceptionInterface|ORMException|OptimisticLockException
      */
     public function testIndexRouteAdminUser(): void
     {
         // given
         $expectedStatusCode = 200;
-        $admin = $this->createUser([UserRole::ROLE_ADMIN->value, UserRole::ROLE_USER->value], 'transactioAdmin@example.com');
-        $this->httpClient->loginUser($admin);
+        $adminUser = $this->createUser([UserRole::ROLE_USER->value, UserRole::ROLE_ADMIN->value], 'transaction_user@example.com');
+        $this->httpClient->loginUser($adminUser);
+
         // when
-        $this->httpClient->request('GET', '/transaction/');
+        $this->httpClient->request('GET', self::TEST_ROUTE);
         $resultStatusCode = $this->httpClient->getResponse()->getStatusCode();
 
         // then
         $this->assertEquals($expectedStatusCode, $resultStatusCode);
     }
+
     /**
-     * Test Show Transaction
+     * Test index route for non-authorized user.
+     *
+     * @throws ContainerExceptionInterface|NotFoundExceptionInterface|ORMException|OptimisticLockException
+     */
+    public function testIndexRouteNonAuthorizedUser(): void
+    {
+        // given
+        $user = $this->createUser([UserRole::ROLE_USER->value], 'transaction_user2@example.com');
+        $this->httpClient->loginUser($user);
+
+        // when
+        $this->httpClient->request('GET', self::TEST_ROUTE);
+        $resultStatusCode = $this->httpClient->getResponse()->getStatusCode();
+
+        // then
+        $this->assertEquals(200, $resultStatusCode);
+    }
+
+
+    /**
+     * Test show single transaction.
+     *
+     * @throws ContainerExceptionInterface|NotFoundExceptionInterface|ORMException|OptimisticLockException
      */
     public function testShowTransaction(): void
     {
         // given
-        $expectedStatusCode = 302;
-        $expectedTransaction = $this->createTransaction();
-        $transactionRepository = self::$container->get(TransactionRepository::class);
-        $id = $expectedTransaction->getId();
-        // when
-        $this->httpClient->request('GET', '/transaction/'.$id);
-        $result = $this->httpClient->getResponse()->getStatusCode();
+        $adminUser = $this->createUser([UserRole::ROLE_ADMIN->value, UserRole::ROLE_USER->value], 'transaction_user2@exmaple.com');
+        $this->httpClient->loginUser($adminUser);
 
-        // then
-        $this->assertEquals($expectedStatusCode, $result);
-        $transactionRepository->delete($expectedTransaction);
-    }
-
-    /**
-     * Test index route for anonymous user.
-     */
-    public function testIndexRouteSearch(): void
-    {
-        // given
-        $expectedStatusCode = 302;
-
-        // when
-        $aa = $this->httpClient->request('GET', '/transaction/');
-        $resultStatusCode = $this->httpClient->getResponse()->getStatusCode();
-
-        // then
-        $this->assertEquals($expectedStatusCode, $resultStatusCode);
-    }
-
-    /**
-     * Test create transaction for admin user.
-     */
-    public function testCreateTransactionAdminUser(): void
-    {
-        // given
-        $expectedStatusCode = 301;
-        $admin = $this->createUser([UserRole::ROLE_USER->value, UserRole::ROLE_ADMIN->value], 'transaction_user1@example.com');
-        $this->logIn($admin);
-        // when
-        $this->httpClient->request('GET', '/transaction/create/');
-        $resultStatusCode = $this->httpClient->getResponse()->getStatusCode();
-
-        // then
-        $this->assertEquals($expectedStatusCode, $resultStatusCode);
-    }
-
-    /**
-     * Test create transaction for admin user.
-     */
-    public function testCreateTransactionNonAdmin(): void
-    {
-        // given
-        $expectedStatusCode = 301;
-        $admin = $this->createUser([UserRole::ROLE_USER->value], 'user01@example.com');
-        $this->logIn($admin);
-        // when
-        $this->httpClient->request('GET', '/transaction/create/');
-        $resultStatusCode = $this->httpClient->getResponse()->getStatusCode();
-
-        // then
-        $this->assertEquals($expectedStatusCode, $resultStatusCode);
-    }
-
-    /**
-     * Edit transaction.
-     */
-    public function testEditTransaction(): void
-    {
-        $transaction = $this->createTransaction();
-
-        $transaction->setName('ChangedTransactionName');
-        $transaction->setUpdatedAt(new \DateTime('now'));
-        $transaction->setUpdatedAt(new \DateTime('now'));
-
-        $transactionRepository = self::$container->get(TransactionRepository::class);
-        $transactionRepository->save($transaction);
-
-        $expected = 'ChangedTransactionName';
-
-        $this->assertEquals($expected, $transactionRepository->findByName($expected)->getName());
-        $transactionRepository->delete($transaction);
-    }
-
-    /**
-     * Delete transaction.
-     */
-    public function testDeleteTransaction(): void
-    {
-        $transaction = $this->createTransaction();
-        $transaction->setName('ChangedTransactionName');
-
-        $transactionRepository = self::$container->get(TransactionRepository::class);
-        $transactionRepository->save($transaction);
-
-        $expected = new Transaction();
-
-        $transactionRepository->delete($transaction);
-
-        $this->assertEquals($expected, $transactionRepository->findByName('ChangedTransactionName')->getName());
-        $transactionRepository->delete($transaction);
-    }
-
-    /**
-     * Create Wallet.
-     * @return Wallet
-     */
-    private function createWallet(): Wallet
-    {
-        $wallet = new Wallet();
-        $wallet->setName('TWallet');
-        $wallet->setBalance('1000');
-        $wallet->setUser($this->createUser([UserRole::ROLE_USER->value], 'uu@example.com'));
-        $walletRepository = self::$container->get(WalletRepository::class);
-        $walletRepository->save($wallet);
-
-        return $wallet;
-    }
-
-    /**
-     * Create transaction.
-     * @return Transaction
-     */
-    private function createTransaction(): Transaction
-    {
         $transaction = new Transaction();
         $transaction->setName('TName');
-        $transaction->setDate(\DateTime::createFromFormat('Y-m-d', '2021-05-09'));
+        $transaction->setDate(DateTime::createFromFormat('Y-m-d', "2021-05-09"));
         $transaction->setAmount('11');
         $transaction->setCategory($this->createCategory());
-        $transaction->setWallet($this->createWallet());
+        $transaction->setWallet($this->createWallet($adminUser));
         $transaction->setOperation($this->createOperation());
         $transaction->setPayment($this->createPayment());
         $transaction->addTag($this->createTag());
-        $transaction->setAuthor($this->createUser([UserRole::ROLE_ADMIN->value, UserRole::ROLE_USER->value], 'transaction3@example.com'));
-
-        $transactionRepository = self::$container->get(TransactionRepository::class);
+        $transaction->setAuthor($adminUser);
+        $transactionRepository = static::getContainer()->get(TransactionRepository::class);
         $transactionRepository->save($transaction);
 
-        return $transaction;
+        // when
+        $this->httpClient->request('GET', self::TEST_ROUTE . '/' . $transaction->getId());
+        $result = $this->httpClient->getResponse();
+
+        // then
+        $this->assertEquals(200, $result->getStatusCode());
+        $this->assertSelectorTextContains('html td', $transaction->getId());
+        // ... more assertions...
     }
+
+    //create transaction
 
     /**
-     * Simulate user log in.
-     *
-     * @param User $user User entity
+     * @throws OptimisticLockException
+     * @throws NotFoundExceptionInterface
+     * @throws ORMException
+     * @throws ContainerExceptionInterface
      */
-    private function logIn(User $user): void
+    public function testCreateTransaction(): void
     {
-        $session = self::$container->get('session');
+        // given
+        $user = $this->createUser([UserRole::ROLE_USER->value],
+            'transaction_created_user2@example.com');
+        $this->httpClient->loginUser($user);
+        $transactionTransactionName = "createdTransaction";
+        $transactionRepository = static::getContainer()->get(TransactionRepository::class);
+        $this->httpClient->request('GET', self::TEST_ROUTE . '/create');
+        // when
+        $this->httpClient->submitForm(
+            'Zapisz',
+            ['transaction' =>
+                [
+                    'name' => $transactionTransactionName,
+                    'date' => $this->date,
+                    'wallet' => 1,
+                    'category' => 1,
+                    'operation' => 1,
+                    'payment' => 1,
+                    'tags' => 1
+                ]
+            ]
+        );
 
-        $firewallName = 'main';
-        $firewallContext = 'main';
+        // then
+        $savedTransaction = $transactionRepository->findOneByName($transactionTransactionName);
+        $this->assertEquals($transactionTransactionName,
+            $savedTransaction->getName());
 
-        $token = new UsernamePasswordToken($user, null, $firewallName, $user->getRoles());
-        $session->set('_security_'.$firewallContext, serialize($token));
-        $session->save();
 
-        $cookie = new Cookie($session->getName(), $session->getId());
-        $this->httpClient->getCookieJar()->set($cookie);
+        $result = $this->httpClient->getResponse();
+        $this->assertEquals(302, $result->getStatusCode());
+
     }
+
 
     /**
-     * Create Tag.
-     *
-     * @return Tag
+     * @return void
+     * @throws ContainerExceptionInterface
+     * @throws NotFoundExceptionInterface
+     * @throws ORMException
+     * @throws OptimisticLockException
      */
-    private function createTag()
+    public function testEditTransaction(): void
     {
-        $tag = new Tag();
-        $tag->setName('TTag');
-        $tagRepository = self::$container->get(TagRepository::class);
-        $tagRepository->save($tag);
+        // given
+        $user = $this->createUser([UserRole::ROLE_USER->value],
+            'transaction_edit_user1@example.com');
+        $this->httpClient->loginUser($user);
 
-        return $tag;
-    }
-    /**
-     * Create Operation.
-     *
-     * @return Operation
-     */
-    private function createOperation()
-    {
-        $operation = new Operation();
-        $operation->setName('TOperation');
-        $operationRepository = self::$container->get(OperationRepository::class);
-        $operationRepository->save($operation);
+        $transactionRepository =
+            static::getContainer()->get(TransactionRepository::class);
+        $transaction = new Transaction();
+        $transaction->setName('TName');
+        $transaction->setDate(DateTime::createFromFormat('Y-m-d', "2021-05-09"));
+        $transaction->setAmount('11');
+        $transaction->setCategory($this->createCategory());
+        $transaction->setWallet($this->createWallet($user));
+        $transaction->setOperation($this->createOperation());
+        $transaction->setPayment($this->createPayment());
+        $transaction->addTag($this->createTag());
+        $transaction->setComment("ala ma kota");
+        $transaction->setAuthor($user);
+        $transactionRepository->save($transaction);
+        $testTransactionId = $transaction->getId();
+        $expectedNewTransactionName = 'TestTransactionEdit';
 
-        return $operation;
-    }
-    /**
-     * Create Payment.
-     *
-     * @return Payment
-     */
-    private function createPayment()
-    {
-        $payment = new Payment();
-        $payment->setName('TPayment');
-        $paymentRepository = self::$container->get(PaymentRepository::class);
-        $paymentRepository->save($payment);
+        $this->httpClient->request('GET', self::TEST_ROUTE . '/' .
+            $testTransactionId . '/edit');
 
-        return $payment;
-    }
-    /**
-     * Create category.
-     * @return Category
-     */
-    private function createCategory()
-    {
-        $category = new Category();
-        $category->setName('TName');
-        $category->setUpdatedAt(new \DateTime('now'));
-        $category->setCreatedAt(new \DateTime('now'));
-        $categoryRepository = self::$container->get(CategoryRepository::class);
-        $categoryRepository->save($category);
+        // when
+        $this->httpClient->submitForm(
+            'Edytuj',
+            ['transaction' =>
+                [
+                    'name' => $expectedNewTransactionName,
+                    'date' => $this->date,
+                    'category' => 1,
+                    'wallet' => 1,
+                    'operation' => 1,
+                    'payment' => 1,
+                    'tags' => 1
+                ]
+            ]
+        );
 
-        return $category;
+        // then
+        $savedTransaction = $transactionRepository->findOneById($testTransactionId);
+        $this->assertEquals($expectedNewTransactionName,
+            $savedTransaction->getName());
+
+        $this->assertNotNull($savedTransaction->getComment());
+        $this->assertNotNull($savedTransaction->getUpdatedAt());
+        $this->assertNotNull($savedTransaction->getCreatedAt());
     }
+
+
+
 }

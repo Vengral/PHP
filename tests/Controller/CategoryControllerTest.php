@@ -20,11 +20,6 @@ use Psr\Container\NotFoundExceptionInterface;
 
 /**
  * Class CategoryControllerTest.
- * @method createTag()
- * @method createPayment()
- * @method createOperation()
- * @method createWallet(User $user)
- * @method logIn(User|null $user)
  */
 class CategoryControllerTest extends WebBaseTestCase
 {
@@ -34,7 +29,8 @@ class CategoryControllerTest extends WebBaseTestCase
      * @const string
      */
     public const TEST_ROUTE = '/category';
-    private $httpClient;
+
+
     /**
      * Set up tests.
      */
@@ -42,8 +38,9 @@ class CategoryControllerTest extends WebBaseTestCase
     {
         $this->httpClient = static::createClient();
     }
+
     /**
-     * Intex Route.
+     * @return void
      */
     public function testIndexRouteAnonymousUser(): void
     {
@@ -86,7 +83,6 @@ class CategoryControllerTest extends WebBaseTestCase
     /**
      * Test index route for non-authorized user.
      *
-     * @throws ContainerExceptionInterface|NotFoundExceptionInterface|ORMException|OptimisticLockException
      */
     public function testIndexRouteNonAuthorizedUser(): void
     {
@@ -101,6 +97,8 @@ class CategoryControllerTest extends WebBaseTestCase
         // then
         $this->assertEquals(200, $resultStatusCode);
     }
+
+
 
     /**
      * Test show single category.
@@ -121,16 +119,16 @@ class CategoryControllerTest extends WebBaseTestCase
         $categoryRepository->save($expectedCategory);
 
         // when
-        $this->httpClient->request('GET', self::TEST_ROUTE.'/'.$expectedCategory->getId());
+        $this->httpClient->request('GET', self::TEST_ROUTE . '/' . $expectedCategory->getId());
         $result = $this->httpClient->getResponse();
 
         // then
         $this->assertEquals(200, $result->getStatusCode());
-        $this->assertSelectorTextContains('html h1', '#'.$expectedCategory->getId());
+        $this->assertSelectorTextContains('html h1', '#' . $expectedCategory->getId());
         // ... more assertions...
     }
 
-    // create category
+    //create category
 
     /**
      * @throws OptimisticLockException
@@ -141,15 +139,13 @@ class CategoryControllerTest extends WebBaseTestCase
     public function testCreateCategory(): void
     {
         // given
-        $user = $this->createUser(
-            [UserRole::ROLE_USER->value],
-            'category_created_user2@example.com'
-        );
+        $user = $this->createUser([UserRole::ROLE_USER->value],
+            'category_created_user2@example.com');
         $this->httpClient->loginUser($user);
-        $categoryCategoryName = 'createdCategor';
+        $categoryCategoryName = "createdCategor";
         $categoryRepository = static::getContainer()->get(CategoryRepository::class);
 
-        $this->httpClient->request('GET', self::TEST_ROUTE.'/create');
+        $this->httpClient->request('GET', self::TEST_ROUTE . '/create');
         // when
         $this->httpClient->submitForm(
             'Zapisz',
@@ -158,16 +154,17 @@ class CategoryControllerTest extends WebBaseTestCase
 
         // then
         $savedCategory = $categoryRepository->findOneByName($categoryCategoryName);
-        $this->assertEquals(
-            $categoryCategoryName,
-            $savedCategory->getName()
-        );
+        $this->assertEquals($categoryCategoryName,
+            $savedCategory->getName());
+
 
         $result = $this->httpClient->getResponse();
         $this->assertEquals(302, $result->getStatusCode());
+
     }
+
     /**
-     * Edit category
+     * @return void
      */
     public function testEditCategoryUnauthorizedUser(): void
     {
@@ -183,19 +180,20 @@ class CategoryControllerTest extends WebBaseTestCase
         $categoryRepository->save($category);
 
         // when
-        $this->httpClient->request('GET', self::TEST_ROUTE.'/'.
-        $category->getId().'/edit');
+        $this->httpClient->request('GET', self::TEST_ROUTE . '/' .
+            $category->getId() . '/edit');
         $actual = $this->httpClient->getResponse();
 
         // then
 
-        $this->assertEquals(
-            $expectedHttpStatusCode,
-            $actual->getStatusCode()
-        );
+        $this->assertEquals($expectedHttpStatusCode,
+            $actual->getStatusCode());
+
     }
 
+
     /**
+     * @return void
      * @throws ContainerExceptionInterface
      * @throws NotFoundExceptionInterface
      * @throws ORMException
@@ -204,10 +202,8 @@ class CategoryControllerTest extends WebBaseTestCase
     public function testEditCategory(): void
     {
         // given
-        $user = $this->createUser(
-            [UserRole::ROLE_USER->value],
-            'category_edit_user1@example.com'
-        );
+        $user = $this->createUser([UserRole::ROLE_USER->value],
+            'category_edit_user1@example.com');
         $this->httpClient->loginUser($user);
 
         $categoryRepository =
@@ -220,8 +216,8 @@ class CategoryControllerTest extends WebBaseTestCase
         $testCategoryId = $testCategory->getId();
         $expectedNewCategoryName = 'TestCategoryEdit';
 
-        $this->httpClient->request('GET', self::TEST_ROUTE.'/'.
-        $testCategoryId.'/edit');
+        $this->httpClient->request('GET', self::TEST_ROUTE . '/' .
+            $testCategoryId . '/edit');
 
         // when
         $this->httpClient->submitForm(
@@ -231,11 +227,10 @@ class CategoryControllerTest extends WebBaseTestCase
 
         // then
         $savedCategory = $categoryRepository->findOneById($testCategoryId);
-        $this->assertEquals(
-            $expectedNewCategoryName,
-            $savedCategory->getName()
-        );
+        $this->assertEquals($expectedNewCategoryName,
+            $savedCategory->getName());
     }
+
 
     /**
      * @throws OptimisticLockException
@@ -247,21 +242,20 @@ class CategoryControllerTest extends WebBaseTestCase
     {
         $adminUser = $this->createUser([UserRole::ROLE_ADMIN->value, UserRole::ROLE_USER->value], 'categoryCreate1@example.com');
         $this->httpClient->loginUser($adminUser);
-        $this->httpClient->request('GET', self::TEST_ROUTE.'/');
+        $this->httpClient->request('GET', self::TEST_ROUTE . '/');
         $this->assertEquals(301, $this->httpClient->getResponse()->getStatusCode());
     }
+
     /**
-     * Test Delete
+     * @return void
      */
     public function testDeleteCategory(): void
     {
         // given
         $user = null;
         try {
-            $user = $this->createUser(
-                [UserRole::ROLE_USER->value],
-                'category_deleted_user1@example.com'
-            );
+            $user = $this->createUser([UserRole::ROLE_USER->value],
+                'category_deleted_user1@example.com');
         } catch (OptimisticLockException|ORMException|NotFoundExceptionInterface|ContainerExceptionInterface $e) {
         }
         $this->httpClient->loginUser($user);
@@ -275,9 +269,9 @@ class CategoryControllerTest extends WebBaseTestCase
         $categoryRepository->save($testCategory);
         $testCategoryId = $testCategory->getId();
 
-        $this->httpClient->request('GET', self::TEST_ROUTE.'/'.$testCategoryId.'/delete');
+        $this->httpClient->request('GET', self::TEST_ROUTE . '/' . $testCategoryId . '/delete');
 
-        // when
+        //when
         $this->httpClient->submitForm(
             'Usuń'
         );
@@ -285,18 +279,17 @@ class CategoryControllerTest extends WebBaseTestCase
         // then
         $this->assertNull($categoryRepository->findOneByName('TestCategoryCreated'));
     }
+
     /**
-     * Test cant delete.
+     * @return void
      */
     public function testCantDeleteCategory(): void
     {
         // given
         $user = null;
         try {
-            $user = $this->createUser(
-                [UserRole::ROLE_USER->value],
-                'category_deleted_user2@example.com'
-            );
+            $user = $this->createUser([UserRole::ROLE_USER->value],
+                'category_deleted_user2@example.com');
         } catch (OptimisticLockException|ORMException|NotFoundExceptionInterface|ContainerExceptionInterface $e) {
         }
         $this->httpClient->loginUser($user);
@@ -312,35 +305,13 @@ class CategoryControllerTest extends WebBaseTestCase
 
         $this->createTransaction($user, $testCategory);
 
-        // when
-        $this->httpClient->request('GET', self::TEST_ROUTE.'/'.$testCategoryId.'/delete');
+        //when
+        $this->httpClient->request('GET', self::TEST_ROUTE . '/' . $testCategoryId . '/delete');
 
         // then
         $this->assertEquals(302, $this->httpClient->getResponse()->getStatusCode());
         $this->assertNotNull($categoryRepository->findOneByName('TestCategoryCreated2'));
     }
 
-    /**
-     * @param User $user
-     * @param $category
-     *
-     * @return void
-     */
-    private function createTransaction(User $user, $category)
-    {
-        $transaction = new Transaction();
-        $transaction->setName('TName');
-        $transaction->setDate(DateTime::createFromFormat('Y-m-d', '2021-05-09'));
-        $transaction->setAmount('11');
-        $transaction->setCategory($category);
-        $transaction->setWallet($this->createWallet($user));
-        $transaction->setOperation($this->createOperation());
-        $transaction->setPayment($this->createPayment());
-        $transaction->addTag($this->createTag());
-        $transaction->setAuthor($user);
-
-        $transactionRepository = self::getContainer()->get(TransactionRepository::class);
-        $transactionRepository->save($transaction);
-    }
 
 }

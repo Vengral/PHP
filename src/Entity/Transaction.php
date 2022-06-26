@@ -163,6 +163,7 @@ class Transaction
 
         return $this->id;
     }
+    // region name
 
     /**
      * Getter for Name.
@@ -188,6 +189,8 @@ class Transaction
         return $this;
     }
 
+    // endregion
+    // region data
     /**
      * Getter for Date.
      *
@@ -212,6 +215,8 @@ class Transaction
         return $this;
     }
 
+    // endregion
+    // region amount
     /**
      * Getter for Amount.
      *
@@ -236,6 +241,8 @@ class Transaction
         return $this;
     }
 
+    // endregion
+    // region create update
     /**
      * Getter for Created At.
      *
@@ -283,6 +290,7 @@ class Transaction
 
         return $this;
     }
+    // endregion
 
     /**
      * Getter for category.
@@ -294,6 +302,8 @@ class Transaction
         return $this->category;
     }
 
+    // endregion
+    // region ManyToOne
     /**
      * Setter for category.
      *
@@ -380,6 +390,28 @@ class Transaction
         return $this;
     }
 
+    // endregion
+
+    /**
+     * Getter for Comment.
+     */
+    public function getComment(): ?string
+    {
+        return $this->comment;
+    }
+
+    /**
+     * Setter for Comment.
+     *
+     * @return $this
+     */
+    public function setComment(?string $comment): self
+    {
+        $this->comment = $comment;
+
+        return $this;
+    }
+
     /**
      * @return Collection<int, Tag>
      */
@@ -396,6 +428,16 @@ class Transaction
         if (!$this->tags->contains($tag)) {
             $this->tags[] = $tag;
         }
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function removeTag(Tag $tag): self
+    {
+        $this->tags->removeElement($tag);
 
         return $this;
     }

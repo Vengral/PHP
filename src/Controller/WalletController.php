@@ -98,9 +98,8 @@ class WalletController extends AbstractController
     )]
     public function create(Request $request): Response
     {
-        $user = $this->getUser();
         $wallet = new Wallet();
-        $wallet->setUser($user);
+        $wallet->setUser($this->getUser());
         $form = $this->createForm(WalletType::class, $wallet);
         $form->handleRequest($request);
 
@@ -171,10 +170,23 @@ class WalletController extends AbstractController
     #[IsGranted('DELETE', subject: 'wallet')]
     public function delete(Request $request, Wallet $wallet): Response
     {
-        $form = $this->createForm(FormType::class, $wallet, [
-            'method' => 'DELETE',
-            'action' => $this->generateUrl('wallet_delete', ['id' => $wallet->getId()]),
-        ]);
+        if (!$this->walletService->canBeDeleted($wallet)) {
+            $this->addFlash(
+                'warning',
+                $this->translator->trans('message.wallet_contains_transactions')
+            );
+
+            return $this->redirectToRoute('wallet_index');
+        }
+
+        $form = $this->createForm(
+            FormType::class,
+            $wallet,
+            [
+                'method' => 'DELETE',
+                'action' => $this->generateUrl('wallet_delete', ['id' => $wallet->getId()]),
+            ]
+        );
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

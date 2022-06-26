@@ -9,8 +9,7 @@
         {% endif %}
 
 
-        <h1 class="h3 mb-3 font-weight-normal">{{ 'title.please_sign_in'|trans }} {{ 'label.or' |trans }}
-            <a href="{{ url('app_register') }}">{{ 'title.sign_up'|trans }}</a>
+        <h1 class="h3 mb-3 font-weight-normal">{{ 'title.please_sign_in'|trans }}
         </h1>
         <label for="inputEmail">{{ 'label.email'|trans }}</label>
         <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control"
@@ -22,17 +21,6 @@
         <input type="hidden" name="_csrf_token"
                value="{{ csrf_token('authenticate') }}"
         >
-
-        {#
-        Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
-        See https://symfony.com/doc/current/security/remember_me.html
-
-        <div class="checkbox mb-3">
-            <label>
-                <input type="checkbox" name="_remember_me"> Remember me
-            </label>
-        </div>
-        #}
 
         <button class="btn btn-lg btn-primary" type="submit">
             {{ 'action.sign_in'|trans }}

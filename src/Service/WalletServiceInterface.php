@@ -1,6 +1,6 @@
 <?php
 /**
- * Task service interface.
+ * WALLET service interface.
  */
 
 namespace App\Service;

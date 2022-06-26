@@ -7,7 +7,10 @@ namespace App\Service;
 
 use App\Entity\Payment;
 use App\Repository\PaymentRepository;
+use App\Repository\TransactionRepository;
 use DateTimeImmutable;
+use Doctrine\ORM\NonUniqueResultException;
+use Doctrine\ORM\NoResultException;
 use Knp\Component\Pager\Pagination\PaginationInterface;
 use Knp\Component\Pager\PaginatorInterface;
 
@@ -21,6 +24,7 @@ class PaymentService implements PaymentServiceInterface
      */
     private PaymentRepository $paymentRepository;
 
+    private TransactionRepository $transactionRepository;
     /**
      * Paginator.
      */
@@ -32,8 +36,9 @@ class PaymentService implements PaymentServiceInterface
      * @param PaymentRepository  $paymentRepository Payment repository
      * @param PaginatorInterface $paginator         Paginator
      */
-    public function __construct(PaymentRepository $paymentRepository, PaginatorInterface $paginator)
+    public function __construct(PaymentRepository $paymentRepository, TransactionRepository $transactionRepository, PaginatorInterface $paginator)
     {
+        $this->transactionRepository = $transactionRepository;
         $this->paymentRepository = $paymentRepository;
         $this->paginator = $paginator;
     }
@@ -45,10 +50,18 @@ class PaymentService implements PaymentServiceInterface
      *
      * @return PaginationInterface<string, mixed> Paginated list
      */
-    public function getPaginatedList(int $page): PaginationInterface
+    public function getPaginatedList(int $page, ?string $name = null): PaginationInterface
     {
+        if (null == $name) {
+            return $this->paginator->paginate(
+                $this->paymentRepository->queryAll(),
+                $page,
+                PaymentRepository::PAGINATOR_ITEMS_PER_PAGE
+            );
+        }
+
         return $this->paginator->paginate(
-            $this->paymentRepository->queryAll(),
+            $this->paymentRepository->queryLikeName($name),
             $page,
             PaymentRepository::PAGINATOR_ITEMS_PER_PAGE
         );
@@ -61,7 +74,7 @@ class PaymentService implements PaymentServiceInterface
      */
     public function save(Payment $payment): void
     {
-        if (null === $payment->getId()) {
+        if (null == $payment->getId()) {
             $payment->setCreatedAt(new DateTimeImmutable());
         }
         $payment->setUpdatedAt(new DateTimeImmutable());
@@ -77,5 +90,23 @@ class PaymentService implements PaymentServiceInterface
     public function delete(Payment $payment): void
     {
         $this->paymentRepository->delete($payment);
+    }
+
+    /**
+     * Can Payment be deleted?
+     *
+     * @param Payment $category Payment entity
+     *
+     * @return bool Result
+     */
+    public function canBeDeleted(Payment $category): bool
+    {
+        try {
+            $result = $this->transactionRepository->countByPayment($category);
+
+            return !($result > 0);
+        } catch (NoResultException|NonUniqueResultException) {
+            return false;
+        }
     }
 }

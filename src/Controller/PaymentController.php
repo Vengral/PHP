@@ -161,10 +161,23 @@ class PaymentController extends AbstractController
     #[Route('/{id}/delete', name: 'payment_delete', requirements: ['id' => '[1-9]\d*'], methods: 'GET|DELETE')]
     public function delete(Request $request, Payment $payment): Response
     {
-        $form = $this->createForm(FormType::class, $payment, [
-            'method' => 'DELETE',
-            'action' => $this->generateUrl('payment_delete', ['id' => $payment->getId()]),
-        ]);
+        if (!$this->paymentService->canBeDeleted($payment)) {
+            $this->addFlash(
+                'warning',
+                $this->translator->trans('message.payment_contains_transactions')
+            );
+
+            return $this->redirectToRoute('payment_index');
+        }
+
+        $form = $this->createForm(
+            FormType::class,
+            $payment,
+            [
+                'method' => 'DELETE',
+                'action' => $this->generateUrl('payment_delete', ['id' => $payment->getId()]),
+            ]
+        );
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

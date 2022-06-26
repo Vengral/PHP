@@ -1,10 +1,5 @@
 {% include 'default/_form.html.twig' with {
-    page_title: 'title_wallet_edit',
-    page_title_param: {'%id%': wallet.id},
-    attr: {
-        method: 'PUT',
-        action: url('wallet_edit', {'id': wallet.id}),
-    },
+    page_title: 'title.wallet_edit'|trans({'%id%': category.id|default('')}),
     form: form,
-    back_to_list_path: 'wallet_index',
+    submit_label: 'action.edit'|trans,
 } %}
