@@ -1,0 +1,398 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="pl" datatype="plaintext" original="file.ext">
+        <body>
+            <trans-unit id="label.actions">
+                <source>label.actions</source>
+                <target>Akcje</target>
+            </trans-unit>
+            <trans-unit id="title.category_list">
+                <source>title.category_list</source>
+                <target>Kategorie</target>
+            </trans-unit>
+            <trans-unit id="label.action_view">
+                <source>action.view</source>
+                <target>Szczegóły</target>
+            </trans-unit>
+            <trans-unit id="label.id">
+                <source>label.id</source>
+                <target>Id</target>
+            </trans-unit>
+            <trans-unit id="label.name">
+                <source>label.name</source>
+                <target>Nazwa</target>
+            </trans-unit>
+            <trans-unit id="message.empty_list">
+                <source>message.empty_list</source>
+                <target>Lista jest pusta.</target>
+            </trans-unit>
+            <trans-unit id="message.deleted_successfully">
+                <source>message.deleted_successfully</source>
+                <target>Usunięto</target>
+            </trans-unit>
+            <trans-unit id="title.category_details">
+                <source>title.category_details</source>
+                <target>Szczegóły kategorii #%id%</target>
+            </trans-unit>
+            <trans-unit id="action.back_to_list">
+                <source>action.back_to_list</source>
+                <target>Powrót</target>
+            </trans-unit>
+            <trans-unit id="title.transaction_list">
+                <source>title.transaction_list</source>
+                  <target>Transakcje</target>
+            </trans-unit>
+            <trans-unit id="title.user_details">
+                <source>title.user_details</source>
+                <target>Szczegóły użytkownika</target>
+            </trans-unit>
+            <trans-unit id="action.logout">
+                  <source>action.logout</source>
+                  <target>Wyloguj</target>
+            </trans-unit>
+            <trans-unit id="action.change_password">
+                  <source>action.change_password</source>
+                  <target>Zmień hasło</target>
+            </trans-unit>
+            <trans-unit id="action.create">
+                   <source>action.create</source>
+                   <target>Dodaj nowy rekord</target>
+            </trans-unit>
+            <trans-unit id="label.date">
+                    <source>label.date</source>
+                    <target>Data</target>
+            </trans-unit>
+            <trans-unit id="label.comment">
+                <source>label.comment</source>
+                <target>Notatka</target>
+            </trans-unit>
+            <trans-unit id="label.amount">
+                    <source>label.amount</source>
+                    <target>Kwota</target>
+            </trans-unit>
+            <trans-unit id="label.createdAt">
+                    <source>label.createdAt</source>
+                    <target>Data utworzenia</target>
+            </trans-unit>
+            <trans-unit id="label.updatedAt">
+                    <source>label.updatedAt</source>
+                    <target>Data aktualizacji</target>
+            </trans-unit>
+            <trans-unit id="label.createAt">
+                    <source>label.createAt</source>
+                    <target>Data utworzenia</target>
+            </trans-unit>
+            <trans-unit id="label.updateAt">
+                    <source>label.updateAt</source>
+                    <target>Data aktualizacji</target>
+            </trans-unit>
+            <trans-unit id="label.category">
+                    <source>label.category</source>
+                    <target>Kategorie</target>
+            </trans-unit><trans-unit id="label.wallet">
+                    <source>label.wallet</source>
+            <target>Portfele</target>
+        </trans-unit>
+            <trans-unit id="label.payment">
+                <source>label.payment</source>
+                <target>Typ płatności</target>
+            </trans-unit>
+            <trans-unit id="label.operation">
+                <source>label.operation</source>
+                <target>Operacje</target>
+            </trans-unit>
+            <trans-unit id="label.roles">
+                <source>label.roles</source>
+                <target>Role</target>
+            </trans-unit>
+            <trans-unit id="action.edit">
+                <source>action.edit</source>
+                <target>Edytuj</target>
+            </trans-unit>
+            <trans-unit id="action_delete">
+                <source>action_delete</source>
+                <target>Usuń</target>
+            </trans-unit>
+            <trans-unit id="title.wallet_edit">
+                <source>title.wallet_edit</source>
+                <target>Edytuj portfel</target>
+            </trans-unit>
+            <trans-unit id="label.balance">
+                     <source>label.balance</source>
+                     <target>Saldo</target>
+            </trans-unit>
+            <trans-unit id="action.save">
+                     <source>action.save</source>
+                     <target>Zapisz</target>
+            </trans-unit>
+            <trans-unit id="label.created_at">
+                     <source>label.created_at</source>
+                     <target>Data utworzenia</target>
+            </trans-unit>
+            <trans-unit id="label.updated_at">
+                     <source>label.updated_at</source>
+                     <target>Data aktualizacji</target>
+            </trans-unit>
+            <trans-unit id="title.wallet_list">
+                    <source>title.wallet_list</source>
+                    <target>Portfele</target>
+            </trans-unit>
+            <trans-unit id="title.wallet_delete">
+                    <source>title.wallet_delete</source>
+                    <target>Portfel szczegóły</target>
+            </trans-unit>
+            <trans-unit id="title.wallet_create">
+                    <source>title.wallet_create</source>
+                <target>Dodaj portfel</target>
+            </trans-unit>
+            <trans-unit id="title.operation_create">
+                <source>title.operation_create</source>
+                <target>Dodaj operacje</target>
+            </trans-unit>
+            <trans-unit id="title.payment_create">
+                <source>title.payment_create</source>
+                <target>Dodaj płatność</target>
+            </trans-unit>
+            <trans-unit id="title.payment_delete">
+                <source>title.payment_delete</source>
+                <target>Usuń płatność</target>
+            </trans-unit>
+            <trans-unit id="title.category_create">
+                <source>title.category_create</source>
+                <target>Dodaj kategorię</target>
+            </trans-unit>
+            <trans-unit id="title.category_edit">
+                <source>title.category_edit</source>
+                <target>Edytuj kategorię</target>
+            </trans-unit>
+            <trans-unit id="title.transaction_create">
+                <source>title.transaction_create</source>
+                    <target>Dodaj transakcje</target>
+            </trans-unit>
+            <trans-unit id="title.transaction_details">
+                    <source>title.transaction_details</source>
+                <target>Szczegóły transakcji</target>
+            </trans-unit>
+            <trans-unit id="title.wallet_details">
+                    <source>title.wallet_details</source>
+                    <target>Szczegóły portfela</target>
+            </trans-unit>
+            <trans-unit id="title.payment_list">
+                    <source>title.payment_list</source>
+                    <target>Typ płatności</target>
+            </trans-unit>
+            <trans-unit id="title.tag_list">
+                    <source>title.tag_list</source>
+                    <target>Tagi</target>
+            </trans-unit>
+            <trans-unit id="title.user_list">
+                    <source>title.user_list</source>
+                    <target>Użytkownicy</target>
+            </trans-unit>
+            <trans-unit id="title.tag_details">
+                    <source>title.tag_details</source>
+                    <target>Szczegóły tagu</target>
+            </trans-unit>
+            <trans-unit id="title.payment_details">
+                    <source>title.payment_details</source>
+                    <target>Szczegóły metody płatności</target>
+            </trans-unit>
+            <trans-unit id="label.tags">
+                    <source>label.tags</source>
+                    <target>Tag</target>
+            </trans-unit>
+            <trans-unit id="label.email">
+                <source>label.email</source>
+                <target>email</target>
+            </trans-unit>
+            <trans-unit id="label.title">
+                <source>label.title</source>
+                <target>Tytuł</target>
+            </trans-unit>
+            <trans-unit id="title.operation_list">
+                    <source>title.operation_list</source>
+                    <target>Operacje</target>
+            </trans-unit>
+            <trans-unit id="title.operation_details">
+                    <source>title.operation_details</source>
+                    <target>Szczegóły operacji</target>
+            </trans-unit>
+            <trans-unit id="title.login">
+                    <source>title.login</source>
+                    <target>Zaloguj</target>
+            </trans-unit>
+            <trans-unit id="massage_log">
+                    <source>massage_log</source>
+                    <target>Jesteś zalogowany jako</target>
+            </trans-unit>
+            <trans-unit id="massage_sign_in">
+                    <source>massage_sign_in</source>
+                    <target>Zaloguj się</target>
+            </trans-unit>
+            <trans-unit id="massage_change_password">
+                    <source>massage_change_password</source>
+                    <target>Zmień hasło</target>
+            </trans-unit>
+            <trans-unit id="label.mail">
+                    <source>label.mail</source>
+                    <target>Email</target>
+            </trans-unit>
+            <trans-unit id="label.password">
+                    <source>label.password</source>
+                    <target>Hasło</target>
+            </trans-unit>
+            <trans-unit id="label.password_again">
+                    <source>label.password_again</source>
+                <target>Powtórz hasło</target>
+            </trans-unit>
+            <trans-unit id="action.sign_in">
+                <source>action.sign_in</source>
+                <target>Zaloguj</target>
+            </trans-unit>
+            <trans-unit id="action.login">
+                <source>action.login</source>
+                <target>Zaloguj</target>
+            </trans-unit>
+            <trans-unit id="message.item_not_found">
+                <source>message.item_not_found</source>
+                <target>Nie znaleziono elementu</target>
+            </trans-unit>
+            <trans-unit id="message.form_error">
+                <source>message.form_error</source>
+                <target>Błąd formularza</target>
+            </trans-unit>
+            <trans-unit id="title.tag_create">
+                <source>title.tag_create</source>
+                <target>Stwórz tag</target>
+            </trans-unit>
+            <trans-unit id="message.updated_successfully">
+                <source>message.updated_successfully</source>
+                <target>Rekord został zaktualizowy</target>
+            </trans-unit>
+            <trans-unit id="title.operation_edit">
+                <source>title.operation_edit</source>
+                <target>Edytuj operację</target>
+            </trans-unit>
+            <trans-unit id="title.category_delete">
+                <source>title.category_delete</source>
+                <target>Usuń kategorię</target>
+            </trans-unit>
+            <trans-unit id="title.operation_delete">
+                <source>title.operation_delete</source>
+                <target>Usuń operację</target>
+            </trans-unit>
+            <trans-unit id="title.transaction_delete">
+                <source>title.transaction_delete</source>
+                <target>Usuń transakcje</target>
+            </trans-unit>
+            <trans-unit id="message.category_contains_transactions">
+                <source>message.category_contains_transactions</source>
+                <target>Pzypisano do transakcji.</target>
+            </trans-unit>
+            <trans-unit id="title.transaction_edit">
+                <source>title.transaction_edit</source>
+                <target>Edytuj transakcje</target>
+            </trans-unit>
+            <trans-unit id="Password">
+                <source>Password</source>
+                <target>Hasło</target>
+            </trans-unit>
+            <trans-unit id="Password repeated">
+                    <source>Password repeated</source>
+                    <target>Powtórz hasło</target>
+            </trans-unit>
+            <trans-unit id="Save">
+                    <source>Save</source>
+                <target>Zmień hasło</target>
+            </trans-unit>
+            <trans-unit id="title.change_password">
+                <source>title.change_password</source>
+                <target>Zmień hasło</target>
+            </trans-unit>
+            <trans-unit id="Email could not be found.">
+                <source>Email could not be found.</source>
+                <target>Nie można znaleźć e-maila.</target>
+            </trans-unit>
+            <trans-unit id="message.created_successfully">
+                <source>message.created_successfully</source>
+                <target>Dodano</target>
+            </trans-unit>
+            <trans-unit id="title.payment_edit">
+                <source>title.payment_edit</source>
+                <target>Edytuj płatność.</target>
+            </trans-unit>
+            <trans-unit id="label.none">
+                <source>label.none</source>
+                <target>Brak</target>
+            </trans-unit>
+            <trans-unit id="label.action">
+                <source>label.action</source>
+                <target>Akcja</target>
+            </trans-unit>
+            <trans-unit id="Year">
+                <source>Year</source>
+                <target>Rok</target>
+            </trans-unit>
+            <trans-unit id="Month">
+                <source>Month</source>
+                <target>Miesiąc</target>
+            </trans-unit>
+
+            <trans-unit id="Day">
+                <source>Day</source>
+                <target>Dzień</target>
+            </trans-unit>
+            <trans-unit id="message.edited_successfully">
+                <source>message.edited_successfully</source>
+                <target>udana edycja</target>
+            </trans-unit>
+
+            <trans-unit id="action_create">
+                <source>action_create</source>
+                <target>utworzenie</target>
+            </trans-unit>
+
+            <trans-unit id="message.record_not_found">
+                <source>message.record_not_found</source>
+                <target>Nie znaleziono</target>
+            </trans-unit>
+
+            <trans-unit id="action_logout">
+                <source>action_logout</source>
+                <target>wyloguj</target>
+            </trans-unit>
+
+            <trans-unit id="action_login">
+                <source>action_login</source>
+                <target>zaloguj</target>
+            </trans-unit>
+
+            <trans-unit id="action.search">
+                <source>action.search</source>
+                <target>Szukaj</target>
+            </trans-unit>
+
+            <trans-unit id="action.delete">
+                <source>action.delete</source>
+                <target>Usuń</target>
+            </trans-unit>
+
+            <trans-unit id="title.please_sign_in">
+                <source>title.please_sign_in</source>
+                <target>Zaloguj się</target>
+            </trans-unit>
+
+            <trans-unit id="title.sign_up">
+                <source>title.sign_up</source>
+                <target>zarejestruj</target>
+            </trans-unit>
+
+            <trans-unit id="label.or">
+                <source>label.or</source>
+                <target>lub</target>
+            </trans-unit>
+
+
+        </body>
+    </file>
+</xliff>

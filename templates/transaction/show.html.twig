@@ -1,0 +1,67 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ 'title.transaction_details'|trans({'%id%': transaction.id|default('')}) }}
+{% endblock %}
+
+{% block body %}
+    <h1>{{ 'title.transaction_details'|trans({'%id%': transaction.id|default('')}) }}</h1>
+    {% if transaction is defined and transaction|length %}
+        <table class="table">
+            <tbody>
+            <tr>
+                <th>{{ 'label.id'|trans }}</th>
+                <td>{{ transaction.id }}</td>
+            </tr>
+            <tr>
+                <th>{{ 'label.name'|trans }}</th>
+                <td>{{ transaction.name }}</td>
+            </tr>
+            <tr>
+                <th>{{ 'label.date'|trans }}</th>
+                <td>{{ transaction.date|format_date('long') }}</td>
+            </tr>
+            <tr>
+                <th>{{ 'label.amount'|trans }}</th>
+                <td>{{ transaction.amount }}</td>
+            </tr>
+            <tr>
+                <th>{{ 'label.category'|trans }}</th>
+                <td>{{ transaction.category }}</td>
+            </tr>
+            <tr>
+                <th>{{ 'label.wallet'|trans }}</th>
+                <td>{{ transaction.wallet }}</td>
+            </tr>
+            <tr>
+                <th>{{ 'label.payment'|trans }}</th>
+                <td>{{ transaction.payment }}</td>
+            </tr>
+
+            <tr>
+                <th>{{ 'label.operation'|trans }}</th>
+                <td>{{ transaction.operation }}</td>
+            </tr>
+
+
+            </tbody>
+        </table>
+        <p>
+            <a class="btn btn-primary" href="{{ url('transaction_index') }}" title="{{ 'action.back_to_list'|trans }}">
+                {{ 'action.back_to_list'|trans }}
+            </a>
+        </p>
+        <div class="btn btn-light">
+            <a class="btn btn-primary" href="{{ url('transaction_edit', {id: transaction.id}) }}" title="{{ 'action.edit'|trans }}">
+                {{ 'action.edit'|trans }}</a>
+        </div>
+        <div class="btn btn-light">
+            <a class="btn btn-danger" href="{{ url('transaction_delete', {id: transaction.id}) }}" title="{{ 'action.delete'|trans }}">
+                {{ 'action.delete'|trans }}</a>
+        </div>
+    {% else %}
+        <p>
+            {{ 'message.record_not_found'|trans }}
+        </p>
+    {% endif %}
+{% endblock %}

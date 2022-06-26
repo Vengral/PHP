@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ 'title.wallet_details'|trans({'%id%': wallet.id|default('')}) }}
+{% endblock %}
+
+{% block body %}
+    <h1>{{ 'title.wallet_details'|trans({'%id%': wallet.id|default('')}) }}</h1>
+    {% if wallet is defined and wallet|length %}
+        <table class="table">
+            <tbody>
+            <tr>
+                <th>{{ 'label.id'|trans }}</th>
+                <td>{{ wallet.id }}</td>
+            </tr>
+            <tr>
+                <th>{{ 'label.name'|trans }}</th>
+                <td>{{ wallet.name|json_encode() }}</td>
+            </tr>
+            <tr>
+                <th>{{ 'label.balance'|trans }}</th>
+                <td>{{ wallet.balance }}</td>
+            </tr>
+            <tr>
+                <th>{{ 'label.createdAt'|trans }}</th>
+                <td>{{ wallet.createdAt |format_date('long') }}</td>
+            </tr>
+            <tr>
+                <th>{{ 'label.updateAt'|trans }}</th>
+                <td>{{ wallet.updatedAt|format_date('long') }}</td>
+            </tr>
+            </tbody>
+        </table>
+        <p>
+            <a class="btn btn-primary" href="{{ url('wallet_index') }}" title="{{ 'action.back_to_list'|trans }}">
+                {{ 'action.back_to_list'|trans }}
+            </a>
+        </p>
+    {% else %}
+        <p>
+            {{ 'message.record_not_found'|trans }}
+        </p>
+    {% endif %}
+{% endblock %}

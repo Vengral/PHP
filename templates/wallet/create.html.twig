@@ -1,0 +1,10 @@
+{% include 'default/_form.html.twig' with {
+    page_title: 'title.wallet_create'|trans,
+    attr: {
+        method: 'POST',
+        action: url('wallet_create')
+    },
+    form: form,
+    submit_label: 'action_create'|trans,
+    back_to_list_path: 'wallet_index',
+} %}

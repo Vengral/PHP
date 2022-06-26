@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ 'title.operation_details'|trans({'%id%': operation.id|default('')}) }}
+{% endblock %}
+
+{% block body %}
+    <h1>{{ 'title.operation_details'|trans({'%id%': operation.id|default('')}) }}</h1>
+    {% if operation is defined and operation|length %}
+        <table class="table">
+            <tbody>
+            <tr>
+                <th>{{ 'label.id'|trans }}</th>
+                <td>{{ operation.id }}</td>
+            </tr>
+            <tr>
+                <th>{{ 'label.name'|trans }}</th>
+                <td>{{ operation.name }}</td>
+            </tr>
+            <tr>
+                <th>{{ 'label.updatedAt'|trans }}</th>
+                <td>{{ operation.updatedAt|format_date('long') }}</td>
+            </tr>
+            <tr>
+                <th>{{ 'label.createdAt'|trans }}</th>
+                <td>{{ operation.createdAt|format_date('long') }}</td>
+            </tr>
+            </tbody>
+        </table>
+        <p>
+            <a class="btn btn-primary" href="{{ url('operation_index') }}" title="{{ 'action.back_to_list'|trans }}">
+                {{ 'action.back_to_list'|trans }}
+            </a>
+        </p>
+        <div class="btn btn-light">
+            <a class="btn btn-primary" href="{{ url('operation_edit', {id: operation.id}) }}" title="{{ 'action.edit'|trans }}">
+                {{ 'action.edit'|trans }}</a>
+        </div>
+        <div class="btn btn-light">
+            <a class="btn btn-danger" href="{{ url('operation_delete', {id: operation.id}) }}" title="{{ 'action.delete'|trans }}">
+                {{ 'action.delete'|trans }}</a>
+        </div>
+    {% else %}
+        <p>
+            {{ 'message.record_not_found'|trans }}
+        </p>
+    {% endif %}
+{% endblock %}

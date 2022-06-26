@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    {% block stylesheets %}
+        <link
+                href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+                rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+                crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
+        <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+
+    {% endblock %}
+
+</head>
+<body>
+<div>
+    <nav class="navbar navbar-expand-md navbar-dark bg-primary fixed-top ">
+        <a class="navbar-brand" style="margin-left: 20px;"
+           href="{{ path('wallet_index') }}">{{ 'title.wallet_list'|trans }}</a>
+
+
+        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+            {% if app.user %}
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link"
+                           href="{{ path('transaction_index') }}"> {{ 'title.transaction_list'|trans }}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link"
+                           href="{{ path('operation_index') }}">{{ 'title.operation_list'|trans }}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link"
+                           href="{{ path('payment_index') }}">{{ 'title.payment_list'|trans }}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link"
+                           href="{{ path('category_index') }}">{{ 'title.category_list'|trans }}</a>
+                    </li>
+
+
+
+                </ul>
+
+                <div class="mb-3"
+
+                     style="text-align: right; display:flex; padding-left: max(800px, 1%);">
+                    {{ app.user.email }}
+                    <a style="display:flex;" class="btn btn-danger" ;
+                       href="{{ path('app_logout') }}">{{ 'action.logout'|trans }}</a>
+                </div>
+
+
+            {% endif %}
+        </div>
+    </nav>
+</div>
+
+<main role="main" class="container" style="padding-top: 75px; flex: 0;">
+
+    <div class="container-fluid">
+        {% for type, messages in app.session.flashBag.all %}
+            {% for message in messages %}
+                <div class="alert alert-{{ type }}" role="alert">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endfor %}
+        <div class="container-fluid">
+            {% include 'default/_flash_messages.html.twig' %}
+            {% block body %}{% endblock %}
+        </div>
+    </div>
+</main>
+
+{% block javascripts %}
+    <script
+            src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
+            integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI="
+            crossorigin="anonymous"></script>
+    <script
+            src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+            integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
+            crossorigin="anonymous"></script>
+    <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+            integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
+            crossorigin="anonymous"></script>
+{% endblock %}
+</body>
+</html>

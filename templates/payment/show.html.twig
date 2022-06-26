@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ 'title.payment_details'|trans({'%id%': payment.id|default('')}) }}
+{% endblock %}
+
+{% block body %}
+    <h1>{{ 'title.payment_details'|trans({'%id%': payment.id|default('')}) }}</h1>
+    {% if payment is defined and payment|length %}
+        <table class="table">
+            <tbody>
+            <tr>
+                <th>{{ 'label.id'|trans }}</th>
+                <td>{{ payment.id }}</td>
+            </tr>
+            <tr>
+                <th>{{ 'label.name'|trans }}</th>
+                <td>{{ payment.name }}</td>
+            </tr>
+            <tr>
+                <th>{{ 'label.updatedAt'|trans }}</th>
+                <td>{{ payment.updatedAt|format_date('long') }}</td>
+            </tr>
+            <tr>
+                <th>{{ 'label.createdAt'|trans }}</th>
+                <td>{{ payment.createdAt|format_date('long') }}</td>
+            </tr>
+
+            </tbody>
+        </table>
+        <p>
+            <a class="btn btn-primary" href="{{ url('payment_index') }}" title="{{ 'action.back_to_list'|trans }}">
+                {{ 'action.back_to_list'|trans }}
+            </a>
+        </p>
+        <div class="btn btn-light">
+            <a class="btn btn-primary" href="{{ url('payment_edit', {id: payment.id}) }}" title="{{ 'action.edit'|trans }}">
+                {{ 'action.edit'|trans }}</a>
+        </div>
+        <div class="btn btn-light">
+            <a class="btn btn-danger" href="{{ url('payment_delete', {id: payment.id}) }}" title="{{ 'action.delete'|trans }}">
+                {{ 'action.delete'|trans }}</a>
+        </div>
+    {% else %}
+        <p>
+            {{ 'message.record_not_found'|trans }}
+        </p>
+    {% endif %}
+{% endblock %}

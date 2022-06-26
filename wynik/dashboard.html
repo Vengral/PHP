@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Dashboard for /home/wwwroot/app/src</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="_css/bootstrap.min.css" rel="stylesheet" type="text/css">
+  <link href="_css/nv.d3.min.css" rel="stylesheet" type="text/css">
+  <link href="_css/style.css" rel="stylesheet" type="text/css">
+  <link href="_css/custom.css" rel="stylesheet" type="text/css">
+ </head>
+ <body>
+  <header>
+   <div class="container-fluid">
+    <div class="row">
+     <div class="col-md-12">
+      <nav aria-label="breadcrumb">
+       <ol class="breadcrumb">
+         <li class="breadcrumb-item"><a href="index.html">/home/wwwroot/app/src</a></li>
+         <li class="breadcrumb-item active">(Dashboard)</li>
+
+       </ol>
+      </nav>
+     </div>
+    </div>
+   </div>
+  </header>
+  <div class="container-fluid">
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Classes</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="classCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="classComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Controller/RegistrationController.php.html#21">App\Controller\RegistrationController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/SecurityController.php.html#17">App\Controller\SecurityController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/TagController.php.html#18">App\Controller\TagController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/TransactionController.php.html#22">App\Controller\TransactionController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/UserController.php.html#22">App\Controller\UserController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/WalletController.php.html#24">App\Controller\WalletController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Form/DataTransformer/TagsDataTransformer.php.html#18">App\Form\DataTransformer\TagsDataTransformer</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Form/Type/RegistrationFormType.php.html#19">App\Form\Type\RegistrationFormType</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Form/Type/TransactionType.php.html#24">App\Form\Type\TransactionType</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Form/Type/UserType.php.html#20">App\Form\Type\UserType</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Service/UserService.php.html#17">App\Service\UserService</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Enum/UserRole.php.html#11">App\Entity\Enum\UserRole</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Security/Voter/TransactionVoter.php.html#19">App\Security\Voter\TransactionVoter</a></td><td class="text-right">12%</td></tr>
+       <tr><td><a href="Security/Voter/WalletVoter.php.html#19">App\Security\Voter\WalletVoter</a></td><td class="text-right">12%</td></tr>
+       <tr><td><a href="Controller/OperationController.php.html#21">App\Controller\OperationController</a></td><td class="text-right">13%</td></tr>
+       <tr><td><a href="Controller/PaymentController.php.html#21">App\Controller\PaymentController</a></td><td class="text-right">16%</td></tr>
+       <tr><td><a href="Repository/UserRepository.php.html#21">App\Repository\UserRepository</a></td><td class="text-right">23%</td></tr>
+       <tr><td><a href="Repository/WalletRepository.php.html#22">App\Repository\WalletRepository</a></td><td class="text-right">27%</td></tr>
+       <tr><td><a href="Security/LoginFormAuthenticator.php.html#26">App\Security\LoginFormAuthenticator</a></td><td class="text-right">30%</td></tr>
+       <tr><td><a href="Repository/TransactionRepository.php.html#29">App\Repository\TransactionRepository</a></td><td class="text-right">33%</td></tr>
+       <tr><td><a href="Repository/TagRepository.php.html#21">App\Repository\TagRepository</a></td><td class="text-right">35%</td></tr>
+       <tr><td><a href="Service/TransactionService.php.html#19">App\Service\TransactionService</a></td><td class="text-right">50%</td></tr>
+       <tr><td><a href="Service/WalletService.php.html#20">App\Service\WalletService</a></td><td class="text-right">58%</td></tr>
+       <tr><td><a href="Entity/Transaction.php.html#21">App\Entity\Transaction</a></td><td class="text-right">72%</td></tr>
+       <tr><td><a href="Entity/User.php.html#23">App\Entity\User</a></td><td class="text-right">76%</td></tr>
+       <tr><td><a href="Entity/Tag.php.html#22">App\Entity\Tag</a></td><td class="text-right">76%</td></tr>
+       <tr><td><a href="Service/CategoryService.php.html#20">App\Service\CategoryService</a></td><td class="text-right">77%</td></tr>
+       <tr><td><a href="Entity/Wallet.php.html#22">App\Entity\Wallet</a></td><td class="text-right">78%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Controller/TransactionController.php.html#22">App\Controller\TransactionController</a></td><td class="text-right">156</td></tr>
+       <tr><td><a href="Controller/UserController.php.html#22">App\Controller\UserController</a></td><td class="text-right">156</td></tr>
+       <tr><td><a href="Controller/WalletController.php.html#24">App\Controller\WalletController</a></td><td class="text-right">156</td></tr>
+       <tr><td><a href="Controller/OperationController.php.html#21">App\Controller\OperationController</a></td><td class="text-right">103</td></tr>
+       <tr><td><a href="Controller/PaymentController.php.html#21">App\Controller\PaymentController</a></td><td class="text-right">95</td></tr>
+       <tr><td><a href="Security/Voter/TransactionVoter.php.html#19">App\Security\Voter\TransactionVoter</a></td><td class="text-right">92</td></tr>
+       <tr><td><a href="Security/Voter/WalletVoter.php.html#19">App\Security\Voter\WalletVoter</a></td><td class="text-right">92</td></tr>
+       <tr><td><a href="Form/DataTransformer/TagsDataTransformer.php.html#18">App\Form\DataTransformer\TagsDataTransformer</a></td><td class="text-right">72</td></tr>
+       <tr><td><a href="Repository/WalletRepository.php.html#22">App\Repository\WalletRepository</a></td><td class="text-right">47</td></tr>
+       <tr><td><a href="Service/UserService.php.html#17">App\Service\UserService</a></td><td class="text-right">42</td></tr>
+       <tr><td><a href="Entity/Transaction.php.html#21">App\Entity\Transaction</a></td><td class="text-right">40</td></tr>
+       <tr><td><a href="Repository/UserRepository.php.html#21">App\Repository\UserRepository</a></td><td class="text-right">37</td></tr>
+       <tr><td><a href="Repository/TagRepository.php.html#21">App\Repository\TagRepository</a></td><td class="text-right">30</td></tr>
+       <tr><td><a href="Security/LoginFormAuthenticator.php.html#26">App\Security\LoginFormAuthenticator</a></td><td class="text-right">23</td></tr>
+       <tr><td><a href="Controller/TagController.php.html#18">App\Controller\TagController</a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="Form/Type/UserType.php.html#20">App\Form\Type\UserType</a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="Controller/SecurityController.php.html#17">App\Controller\SecurityController</a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Service/TransactionService.php.html#19">App\Service\TransactionService</a></td><td class="text-right">10</td></tr>
+       <tr><td><a href="Service/CategoryService.php.html#20">App\Service\CategoryService</a></td><td class="text-right">9</td></tr>
+       <tr><td><a href="Service/WalletService.php.html#20">App\Service\WalletService</a></td><td class="text-right">8</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Methods</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="methodCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="methodComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Controller/OperationController.php.html#70"><abbr title="App\Controller\OperationController::show">show</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/OperationController.php.html#88"><abbr title="App\Controller\OperationController::create">create</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/OperationController.php.html#124"><abbr title="App\Controller\OperationController::edit">edit</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/OperationController.php.html#161"><abbr title="App\Controller\OperationController::delete">delete</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/PaymentController.php.html#88"><abbr title="App\Controller\PaymentController::create">create</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/PaymentController.php.html#124"><abbr title="App\Controller\PaymentController::edit">edit</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/PaymentController.php.html#161"><abbr title="App\Controller\PaymentController::delete">delete</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/RegistrationController.php.html#32"><abbr title="App\Controller\RegistrationController::register">register</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/SecurityController.php.html#24"><abbr title="App\Controller\SecurityController::login">login</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/SecurityController.php.html#40"><abbr title="App\Controller\SecurityController::logout">logout</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/TagController.php.html#28"><abbr title="App\Controller\TagController::index">index</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/TagController.php.html#42"><abbr title="App\Controller\TagController::new">new</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/TransactionController.php.html#41"><abbr title="App\Controller\TransactionController::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/TransactionController.php.html#54"><abbr title="App\Controller\TransactionController::index">index</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/TransactionController.php.html#72"><abbr title="App\Controller\TransactionController::show">show</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/TransactionController.php.html#86"><abbr title="App\Controller\TransactionController::create">create</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/TransactionController.php.html#124"><abbr title="App\Controller\TransactionController::edit">edit</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/TransactionController.php.html#159"><abbr title="App\Controller\TransactionController::delete">delete</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/UserController.php.html#44"><abbr title="App\Controller\UserController::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/UserController.php.html#56"><abbr title="App\Controller\UserController::index">index</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/UserController.php.html#76"><abbr title="App\Controller\UserController::show">show</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/UserController.php.html#97"><abbr title="App\Controller\UserController::create">create</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/UserController.php.html#139"><abbr title="App\Controller\UserController::edit">edit</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/UserController.php.html#176"><abbr title="App\Controller\UserController::delete">delete</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/WalletController.php.html#42"><abbr title="App\Controller\WalletController::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/WalletController.php.html#55"><abbr title="App\Controller\WalletController::index">index</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/WalletController.php.html#76"><abbr title="App\Controller\WalletController::show">show</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/WalletController.php.html#98"><abbr title="App\Controller\WalletController::create">create</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/WalletController.php.html#136"><abbr title="App\Controller\WalletController::edit">edit</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/WalletController.php.html#174"><abbr title="App\Controller\WalletController::delete">delete</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Operation.php.html#152"><abbr title="App\Entity\Operation::__toString">__toString</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Tag.php.html#108"><abbr title="App\Entity\Tag::getCreatedAt">getCreatedAt</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Tag.php.html#132"><abbr title="App\Entity\Tag::getUpdatedAt">getUpdatedAt</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Tag.php.html#154"><abbr title="App\Entity\Tag::__toString">__toString</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Transaction.php.html#172"><abbr title="App\Entity\Transaction::getName">getName</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Transaction.php.html#196"><abbr title="App\Entity\Transaction::getDate">getDate</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Transaction.php.html#220"><abbr title="App\Entity\Transaction::getAmount">getAmount</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Transaction.php.html#244"><abbr title="App\Entity\Transaction::getCreatedAt">getCreatedAt</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Transaction.php.html#268"><abbr title="App\Entity\Transaction::getUpdatedAt">getUpdatedAt</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Transaction.php.html#292"><abbr title="App\Entity\Transaction::getCategory">getCategory</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Transaction.php.html#316"><abbr title="App\Entity\Transaction::getWallet">getWallet</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Transaction.php.html#340"><abbr title="App\Entity\Transaction::getPayment">getPayment</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Transaction.php.html#364"><abbr title="App\Entity\Transaction::getOperation">getOperation</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Transaction.php.html#386"><abbr title="App\Entity\Transaction::getTags">getTags</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Transaction.php.html#408"><abbr title="App\Entity\Transaction::getAuthor">getAuthor</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/User.php.html#85"><abbr title="App\Entity\User::getId">getId</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/User.php.html#123"><abbr title="App\Entity\User::getUsername">getUsername</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/User.php.html#198"><abbr title="App\Entity\User::getCreatedAt">getCreatedAt</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/User.php.html#220"><abbr title="App\Entity\User::getUpdatedAt">getUpdatedAt</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/User.php.html#243"><abbr title="App\Entity\User::__toString">__toString</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Wallet.php.html#159"><abbr title="App\Entity\Wallet::getCreatedAt">getCreatedAt</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Wallet.php.html#183"><abbr title="App\Entity\Wallet::getUpdatedAt">getUpdatedAt</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Wallet.php.html#205"><abbr title="App\Entity\Wallet::getUser">getUser</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Wallet.php.html#225"><abbr title="App\Entity\Wallet::__toString">__toString</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Form/DataTransformer/TagsDataTransformer.php.html#30"><abbr title="App\Form\DataTransformer\TagsDataTransformer::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Form/DataTransformer/TagsDataTransformer.php.html#42"><abbr title="App\Form\DataTransformer\TagsDataTransformer::transform">transform</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Form/DataTransformer/TagsDataTransformer.php.html#64"><abbr title="App\Form\DataTransformer\TagsDataTransformer::reverseTransform">reverseTransform</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Form/Type/RegistrationFormType.php.html#27"><abbr title="App\Form\Type\RegistrationFormType::buildForm">buildForm</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Form/Type/RegistrationFormType.php.html#54"><abbr title="App\Form\Type\RegistrationFormType::configureOptions">configureOptions</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Form/Type/TransactionType.php.html#40"><abbr title="App\Form\Type\TransactionType::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Form/Type/TransactionType.php.html#57"><abbr title="App\Form\Type\TransactionType::buildForm">buildForm</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Form/Type/TransactionType.php.html#151"><abbr title="App\Form\Type\TransactionType::configureOptions">configureOptions</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Form/Type/TransactionType.php.html#164"><abbr title="App\Form\Type\TransactionType::getBlockPrefix">getBlockPrefix</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Form/Type/UserType.php.html#33"><abbr title="App\Form\Type\UserType::buildForm">buildForm</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Form/Type/UserType.php.html#86"><abbr title="App\Form\Type\UserType::configureOptions">configureOptions</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Form/Type/UserType.php.html#99"><abbr title="App\Form\Type\UserType::getBlockPrefix">getBlockPrefix</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repository/TagRepository.php.html#58"><abbr title="App\Repository\TagRepository::add">add</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repository/TagRepository.php.html#72"><abbr title="App\Repository\TagRepository::remove">remove</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repository/TagRepository.php.html#89"><abbr title="App\Repository\TagRepository::findOneByName">findOneByName</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repository/TransactionRepository.php.html#57"><abbr title="App\Repository\TransactionRepository::queryAll">queryAll</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repository/TransactionRepository.php.html#106"><abbr title="App\Repository\TransactionRepository::countByOperation">countByOperation</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repository/TransactionRepository.php.html#127"><abbr title="App\Repository\TransactionRepository::countByPayment">countByPayment</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repository/TransactionRepository.php.html#167"><abbr title="App\Repository\TransactionRepository::queryByAuthor">queryByAuthor</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repository/UserRepository.php.html#38"><abbr title="App\Repository\UserRepository::queryAll">queryAll</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repository/UserRepository.php.html#50"><abbr title="App\Repository\UserRepository::add">add</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repository/UserRepository.php.html#63"><abbr title="App\Repository\UserRepository::remove">remove</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repository/UserRepository.php.html#88"><abbr title="App\Repository\UserRepository::getOrCreateQueryBuilder">getOrCreateQueryBuilder</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repository/WalletRepository.php.html#41"><abbr title="App\Repository\WalletRepository::add">add</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repository/WalletRepository.php.html#54"><abbr title="App\Repository\WalletRepository::queryAll">queryAll</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repository/WalletRepository.php.html#66"><abbr title="App\Repository\WalletRepository::remove">remove</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repository/WalletRepository.php.html#92"><abbr title="App\Repository\WalletRepository::queryByAuthor">queryByAuthor</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repository/WalletRepository.php.html#119"><abbr title="App\Repository\WalletRepository::getOrCreateQueryBuilder">getOrCreateQueryBuilder</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Security/LoginFormAuthenticator.php.html#75"><abbr title="App\Security\LoginFormAuthenticator::authenticate">authenticate</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Security/LoginFormAuthenticator.php.html#107"><abbr title="App\Security\LoginFormAuthenticator::onAuthenticationSuccess">onAuthenticationSuccess</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Security/Voter/TransactionVoter.php.html#81"><abbr title="App\Security\Voter\TransactionVoter::voteOnAttribute">voteOnAttribute</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Security/Voter/TransactionVoter.php.html#104"><abbr title="App\Security\Voter\TransactionVoter::canEdit">canEdit</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Security/Voter/TransactionVoter.php.html#118"><abbr title="App\Security\Voter\TransactionVoter::canView">canView</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Security/Voter/TransactionVoter.php.html#132"><abbr title="App\Security\Voter\TransactionVoter::canDelete">canDelete</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Security/Voter/WalletVoter.php.html#81"><abbr title="App\Security\Voter\WalletVoter::voteOnAttribute">voteOnAttribute</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Security/Voter/WalletVoter.php.html#104"><abbr title="App\Security\Voter\WalletVoter::canEdit">canEdit</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Security/Voter/WalletVoter.php.html#118"><abbr title="App\Security\Voter\WalletVoter::canView">canView</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Security/Voter/WalletVoter.php.html#132"><abbr title="App\Security\Voter\WalletVoter::canDelete">canDelete</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Service/TransactionService.php.html#51"><abbr title="App\Service\TransactionService::getPaginatedList">getPaginatedList</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Service/UserService.php.html#35"><abbr title="App\Service\UserService::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Service/UserService.php.html#48"><abbr title="App\Service\UserService::getPaginatedList">getPaginatedList</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Service/UserService.php.html#62"><abbr title="App\Service\UserService::save">save</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Service/UserService.php.html#77"><abbr title="App\Service\UserService::delete">delete</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Service/UserService.php.html#89"><abbr title="App\Service\UserService::findOneById">findOneById</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Service/WalletService.php.html#52"><abbr title="App\Service\WalletService::getPaginatedList">getPaginatedList</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Enum/UserRole.php.html#20"><abbr title="App\Entity\Enum\UserRole::label">label</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Service/CategoryService.php.html#117"><abbr title="App\Service\CategoryService::canBeDeleted">canBeDeleted</abbr></a></td><td class="text-right">50%</td></tr>
+       <tr><td><a href="Service/CategoryService.php.html#56"><abbr title="App\Service\CategoryService::getPaginatedList">getPaginatedList</abbr></a></td><td class="text-right">60%</td></tr>
+       <tr><td><a href="Service/TransactionService.php.html#73"><abbr title="App\Service\TransactionService::save">save</abbr></a></td><td class="text-right">75%</td></tr>
+       <tr><td><a href="Controller/CategoryController.php.html#161"><abbr title="App\Controller\CategoryController::delete">delete</abbr></a></td><td class="text-right">80%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Form/DataTransformer/TagsDataTransformer.php.html#64"><abbr title="App\Form\DataTransformer\TagsDataTransformer::reverseTransform">reverseTransform</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="Controller/OperationController.php.html#88"><abbr title="App\Controller\OperationController::create">create</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Controller/OperationController.php.html#124"><abbr title="App\Controller\OperationController::edit">edit</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Controller/OperationController.php.html#161"><abbr title="App\Controller\OperationController::delete">delete</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Controller/PaymentController.php.html#88"><abbr title="App\Controller\PaymentController::create">create</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Controller/PaymentController.php.html#124"><abbr title="App\Controller\PaymentController::edit">edit</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Controller/PaymentController.php.html#161"><abbr title="App\Controller\PaymentController::delete">delete</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Controller/TagController.php.html#42"><abbr title="App\Controller\TagController::new">new</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Controller/TransactionController.php.html#86"><abbr title="App\Controller\TransactionController::create">create</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Controller/TransactionController.php.html#124"><abbr title="App\Controller\TransactionController::edit">edit</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Controller/TransactionController.php.html#159"><abbr title="App\Controller\TransactionController::delete">delete</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Controller/UserController.php.html#97"><abbr title="App\Controller\UserController::create">create</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Controller/UserController.php.html#139"><abbr title="App\Controller\UserController::edit">edit</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Controller/UserController.php.html#176"><abbr title="App\Controller\UserController::delete">delete</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Controller/WalletController.php.html#98"><abbr title="App\Controller\WalletController::create">create</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Controller/WalletController.php.html#136"><abbr title="App\Controller\WalletController::edit">edit</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Controller/WalletController.php.html#174"><abbr title="App\Controller\WalletController::delete">delete</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Form/DataTransformer/TagsDataTransformer.php.html#42"><abbr title="App\Form\DataTransformer\TagsDataTransformer::transform">transform</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Controller/SecurityController.php.html#24"><abbr title="App\Controller\SecurityController::login">login</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Form/Type/UserType.php.html#33"><abbr title="App\Form\Type\UserType::buildForm">buildForm</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Repository/TagRepository.php.html#58"><abbr title="App\Repository\TagRepository::add">add</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Repository/TagRepository.php.html#72"><abbr title="App\Repository\TagRepository::remove">remove</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Repository/UserRepository.php.html#50"><abbr title="App\Repository\UserRepository::add">add</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Repository/UserRepository.php.html#63"><abbr title="App\Repository\UserRepository::remove">remove</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Repository/WalletRepository.php.html#41"><abbr title="App\Repository\WalletRepository::add">add</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Repository/WalletRepository.php.html#66"><abbr title="App\Repository\WalletRepository::remove">remove</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Security/LoginFormAuthenticator.php.html#107"><abbr title="App\Security\LoginFormAuthenticator::onAuthenticationSuccess">onAuthenticationSuccess</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Security/Voter/TransactionVoter.php.html#81"><abbr title="App\Security\Voter\TransactionVoter::voteOnAttribute">voteOnAttribute</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Security/Voter/TransactionVoter.php.html#104"><abbr title="App\Security\Voter\TransactionVoter::canEdit">canEdit</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Security/Voter/TransactionVoter.php.html#118"><abbr title="App\Security\Voter\TransactionVoter::canView">canView</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Security/Voter/TransactionVoter.php.html#132"><abbr title="App\Security\Voter\TransactionVoter::canDelete">canDelete</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Security/Voter/WalletVoter.php.html#81"><abbr title="App\Security\Voter\WalletVoter::voteOnAttribute">voteOnAttribute</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Security/Voter/WalletVoter.php.html#104"><abbr title="App\Security\Voter\WalletVoter::canEdit">canEdit</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Security/Voter/WalletVoter.php.html#118"><abbr title="App\Security\Voter\WalletVoter::canView">canView</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Security/Voter/WalletVoter.php.html#132"><abbr title="App\Security\Voter\WalletVoter::canDelete">canDelete</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Service/TransactionService.php.html#51"><abbr title="App\Service\TransactionService::getPaginatedList">getPaginatedList</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Service/UserService.php.html#62"><abbr title="App\Service\UserService::save">save</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Service/WalletService.php.html#52"><abbr title="App\Service\WalletService::getPaginatedList">getPaginatedList</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Controller/CategoryController.php.html#161"><abbr title="App\Controller\CategoryController::delete">delete</abbr></a></td><td class="text-right">4</td></tr>
+       <tr><td><a href="Service/CategoryService.php.html#117"><abbr title="App\Service\CategoryService::canBeDeleted">canBeDeleted</abbr></a></td><td class="text-right">2</td></tr>
+       <tr><td><a href="Service/CategoryService.php.html#56"><abbr title="App\Service\CategoryService::getPaginatedList">getPaginatedList</abbr></a></td><td class="text-right">2</td></tr>
+       <tr><td><a href="Service/TransactionService.php.html#73"><abbr title="App\Service\TransactionService::save">save</abbr></a></td><td class="text-right">2</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <footer>
+    <hr/>
+    <p>
+     <small>Generated by <a href="https://github.com/sebastianbergmann/php-code-coverage" target="_top">php-code-coverage 9.2.15</a> using <a href="https://secure.php.net/" target="_top">PHP 8.1.5</a> and <a href="https://phpunit.de/">PHPUnit 9.5.20</a> at Sun Jun 26 11:50:23 UTC 2022.</small>
+    </p>
+   </footer>
+  </div>
+  <script src="_js/jquery.min.js" type="text/javascript"></script>
+  <script src="_js/d3.min.js" type="text/javascript"></script>
+  <script src="_js/nv.d3.min.js" type="text/javascript"></script>
+  <script type="text/javascript">
+$(document).ready(function() {
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#classCoverageDistribution svg')
+      .datum(getCoverageDistributionData([12,0,4,2,3,0,2,0,5,0,2,13], "Class Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#methodCoverageDistribution svg')
+      .datum(getCoverageDistributionData([100,0,0,0,0,0,1,1,1,1,0,146], "Method Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getCoverageDistributionData(data, label) {
+    var labels = [
+      '0%',
+      '0-10%',
+      '10-20%',
+      '20-30%',
+      '30-40%',
+      '40-50%',
+      '50-60%',
+      '60-70%',
+      '70-80%',
+      '80-90%',
+      '90-100%',
+      '100%'
+    ];
+    var values = [];
+    $.each(labels, function(key) {
+      values.push({x: labels[key], y: data[key]});
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.tooltipContent(function(graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Cyclomatic Complexity');
+
+    d3.select('#classComplexity svg')
+      .datum(getComplexityData([[92.6829268292683,13,"<a href=\"Controller\/CategoryController.php.html#21\">App\\Controller\\CategoryController<\/a>"],[13.88888888888889,12,"<a href=\"Controller\/OperationController.php.html#21\">App\\Controller\\OperationController<\/a>"],[16.666666666666664,12,"<a href=\"Controller\/PaymentController.php.html#21\">App\\Controller\\PaymentController<\/a>"],[0,1,"<a href=\"Controller\/RegistrationController.php.html#21\">App\\Controller\\RegistrationController<\/a>"],[0,3,"<a href=\"Controller\/SecurityController.php.html#17\">App\\Controller\\SecurityController<\/a>"],[0,4,"<a href=\"Controller\/TagController.php.html#18\">App\\Controller\\TagController<\/a>"],[0,12,"<a href=\"Controller\/TransactionController.php.html#22\">App\\Controller\\TransactionController<\/a>"],[0,12,"<a href=\"Controller\/UserController.php.html#22\">App\\Controller\\UserController<\/a>"],[0,12,"<a href=\"Controller\/WalletController.php.html#24\">App\\Controller\\WalletController<\/a>"],[100,9,"<a href=\"Entity\/Category.php.html#22\">App\\Entity\\Category<\/a>"],[92.3076923076923,9,"<a href=\"Entity\/Operation.php.html#23\">App\\Entity\\Operation<\/a>"],[100,9,"<a href=\"Entity\/Payment.php.html#22\">App\\Entity\\Payment<\/a>"],[76.92307692307693,9,"<a href=\"Entity\/Tag.php.html#22\">App\\Entity\\Tag<\/a>"],[72.5,26,"<a href=\"Entity\/Transaction.php.html#21\">App\\Entity\\Transaction<\/a>"],[76.19047619047619,17,"<a href=\"Entity\/User.php.html#23\">App\\Entity\\User<\/a>"],[78.94736842105263,13,"<a href=\"Entity\/Wallet.php.html#22\">App\\Entity\\Wallet<\/a>"],[0,8,"<a href=\"Form\/DataTransformer\/TagsDataTransformer.php.html#18\">App\\Form\\DataTransformer\\TagsDataTransformer<\/a>"],[100,3,"<a href=\"Form\/Type\/CategoryType.php.html#17\">App\\Form\\Type\\CategoryType<\/a>"],[100,3,"<a href=\"Form\/Type\/OperationType.php.html#17\">App\\Form\\Type\\OperationType<\/a>"],[100,3,"<a href=\"Form\/Type\/PaymentType.php.html#17\">App\\Form\\Type\\PaymentType<\/a>"],[0,2,"<a href=\"Form\/Type\/RegistrationFormType.php.html#19\">App\\Form\\Type\\RegistrationFormType<\/a>"],[100,1,"<a href=\"Form\/Type\/TagType.php.html#14\">App\\Form\\Type\\TagType<\/a>"],[0,4,"<a href=\"Form\/Type\/TransactionType.php.html#24\">App\\Form\\Type\\TransactionType<\/a>"],[0,4,"<a href=\"Form\/Type\/UserType.php.html#20\">App\\Form\\Type\\UserType<\/a>"],[100,3,"<a href=\"Form\/Type\/WalletType.php.html#18\">App\\Form\\Type\\WalletType<\/a>"],[100,5,"<a href=\"Repository\/CategoryRepository.php.html#20\">App\\Repository\\CategoryRepository<\/a>"],[100,5,"<a href=\"Repository\/OperationRepository.php.html#21\">App\\Repository\\OperationRepository<\/a>"],[100,5,"<a href=\"Repository\/PaymentRepository.php.html#20\">App\\Repository\\PaymentRepository<\/a>"],[35.294117647058826,9,"<a href=\"Repository\/TagRepository.php.html#21\">App\\Repository\\TagRepository<\/a>"],[33.33333333333333,9,"<a href=\"Repository\/TransactionRepository.php.html#29\">App\\Repository\\TransactionRepository<\/a>"],[23.076923076923077,8,"<a href=\"Repository\/UserRepository.php.html#21\">App\\Repository\\UserRepository<\/a>"],[27.77777777777778,10,"<a href=\"Repository\/WalletRepository.php.html#22\">App\\Repository\\WalletRepository<\/a>"],[30.76923076923077,7,"<a href=\"Security\/LoginFormAuthenticator.php.html#26\">App\\Security\\LoginFormAuthenticator<\/a>"],[12.5,11,"<a href=\"Security\/Voter\/TransactionVoter.php.html#19\">App\\Security\\Voter\\TransactionVoter<\/a>"],[12.5,11,"<a href=\"Security\/Voter\/WalletVoter.php.html#19\">App\\Security\\Voter\\WalletVoter<\/a>"],[77.77777777777779,9,"<a href=\"Service\/CategoryService.php.html#20\">App\\Service\\CategoryService<\/a>"],[100,5,"<a href=\"Service\/OperationService.php.html#17\">App\\Service\\OperationService<\/a>"],[100,5,"<a href=\"Service\/PaymentService.php.html#17\">App\\Service\\PaymentService<\/a>"],[100,5,"<a href=\"Service\/TagService.php.html#17\">App\\Service\\TagService<\/a>"],[50,6,"<a href=\"Service\/TransactionService.php.html#19\">App\\Service\\TransactionService<\/a>"],[0,6,"<a href=\"Service\/UserService.php.html#17\">App\\Service\\UserService<\/a>"],[58.333333333333336,6,"<a href=\"Service\/WalletService.php.html#20\">App\\Service\\WalletService<\/a>"],[0,1,"<a href=\"Entity\/Enum\/UserRole.php.html#11\">App\\Entity\\Enum\\UserRole<\/a>"]], 'Class Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.tooltipContent(function(graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Method Complexity');
+
+    d3.select('#methodComplexity svg')
+      .datum(getComplexityData([[100,1,"<a href=\"Controller\/CategoryController.php.html#40\">App\\Controller\\CategoryController::__construct<\/a>"],[100,1,"<a href=\"Controller\/CategoryController.php.html#53\">App\\Controller\\CategoryController::index<\/a>"],[100,1,"<a href=\"Controller\/CategoryController.php.html#70\">App\\Controller\\CategoryController::show<\/a>"],[100,3,"<a href=\"Controller\/CategoryController.php.html#88\">App\\Controller\\CategoryController::create<\/a>"],[100,3,"<a href=\"Controller\/CategoryController.php.html#124\">App\\Controller\\CategoryController::edit<\/a>"],[80,4,"<a href=\"Controller\/CategoryController.php.html#161\">App\\Controller\\CategoryController::delete<\/a>"],[100,1,"<a href=\"Controller\/OperationController.php.html#40\">App\\Controller\\OperationController::__construct<\/a>"],[100,1,"<a href=\"Controller\/OperationController.php.html#53\">App\\Controller\\OperationController::index<\/a>"],[0,1,"<a href=\"Controller\/OperationController.php.html#70\">App\\Controller\\OperationController::show<\/a>"],[0,3,"<a href=\"Controller\/OperationController.php.html#88\">App\\Controller\\OperationController::create<\/a>"],[0,3,"<a href=\"Controller\/OperationController.php.html#124\">App\\Controller\\OperationController::edit<\/a>"],[0,3,"<a href=\"Controller\/OperationController.php.html#161\">App\\Controller\\OperationController::delete<\/a>"],[100,1,"<a href=\"Controller\/PaymentController.php.html#40\">App\\Controller\\PaymentController::__construct<\/a>"],[100,1,"<a href=\"Controller\/PaymentController.php.html#53\">App\\Controller\\PaymentController::index<\/a>"],[100,1,"<a href=\"Controller\/PaymentController.php.html#70\">App\\Controller\\PaymentController::show<\/a>"],[0,3,"<a href=\"Controller\/PaymentController.php.html#88\">App\\Controller\\PaymentController::create<\/a>"],[0,3,"<a href=\"Controller\/PaymentController.php.html#124\">App\\Controller\\PaymentController::edit<\/a>"],[0,3,"<a href=\"Controller\/PaymentController.php.html#161\">App\\Controller\\PaymentController::delete<\/a>"],[0,1,"<a href=\"Controller\/RegistrationController.php.html#32\">App\\Controller\\RegistrationController::register<\/a>"],[0,2,"<a href=\"Controller\/SecurityController.php.html#24\">App\\Controller\\SecurityController::login<\/a>"],[0,1,"<a href=\"Controller\/SecurityController.php.html#40\">App\\Controller\\SecurityController::logout<\/a>"],[0,1,"<a href=\"Controller\/TagController.php.html#28\">App\\Controller\\TagController::index<\/a>"],[0,3,"<a href=\"Controller\/TagController.php.html#42\">App\\Controller\\TagController::new<\/a>"],[0,1,"<a href=\"Controller\/TransactionController.php.html#41\">App\\Controller\\TransactionController::__construct<\/a>"],[0,1,"<a href=\"Controller\/TransactionController.php.html#54\">App\\Controller\\TransactionController::index<\/a>"],[0,1,"<a href=\"Controller\/TransactionController.php.html#72\">App\\Controller\\TransactionController::show<\/a>"],[0,3,"<a href=\"Controller\/TransactionController.php.html#86\">App\\Controller\\TransactionController::create<\/a>"],[0,3,"<a href=\"Controller\/TransactionController.php.html#124\">App\\Controller\\TransactionController::edit<\/a>"],[0,3,"<a href=\"Controller\/TransactionController.php.html#159\">App\\Controller\\TransactionController::delete<\/a>"],[0,1,"<a href=\"Controller\/UserController.php.html#44\">App\\Controller\\UserController::__construct<\/a>"],[0,1,"<a href=\"Controller\/UserController.php.html#56\">App\\Controller\\UserController::index<\/a>"],[0,1,"<a href=\"Controller\/UserController.php.html#76\">App\\Controller\\UserController::show<\/a>"],[0,3,"<a href=\"Controller\/UserController.php.html#97\">App\\Controller\\UserController::create<\/a>"],[0,3,"<a href=\"Controller\/UserController.php.html#139\">App\\Controller\\UserController::edit<\/a>"],[0,3,"<a href=\"Controller\/UserController.php.html#176\">App\\Controller\\UserController::delete<\/a>"],[0,1,"<a href=\"Controller\/WalletController.php.html#42\">App\\Controller\\WalletController::__construct<\/a>"],[0,1,"<a href=\"Controller\/WalletController.php.html#55\">App\\Controller\\WalletController::index<\/a>"],[0,1,"<a href=\"Controller\/WalletController.php.html#76\">App\\Controller\\WalletController::show<\/a>"],[0,3,"<a href=\"Controller\/WalletController.php.html#98\">App\\Controller\\WalletController::create<\/a>"],[0,3,"<a href=\"Controller\/WalletController.php.html#136\">App\\Controller\\WalletController::edit<\/a>"],[0,3,"<a href=\"Controller\/WalletController.php.html#174\">App\\Controller\\WalletController::delete<\/a>"],[100,1,"<a href=\"Entity\/Category.php.html#80\">App\\Entity\\Category::__construct<\/a>"],[100,1,"<a href=\"Entity\/Category.php.html#91\">App\\Entity\\Category::getId<\/a>"],[100,1,"<a href=\"Entity\/Category.php.html#101\">App\\Entity\\Category::getName<\/a>"],[100,1,"<a href=\"Entity\/Category.php.html#111\">App\\Entity\\Category::setName<\/a>"],[100,1,"<a href=\"Entity\/Category.php.html#121\">App\\Entity\\Category::getCreatedAt<\/a>"],[100,1,"<a href=\"Entity\/Category.php.html#133\">App\\Entity\\Category::setCreatedAt<\/a>"],[100,1,"<a href=\"Entity\/Category.php.html#145\">App\\Entity\\Category::getUpdatedAt<\/a>"],[100,1,"<a href=\"Entity\/Category.php.html#157\">App\\Entity\\Category::setUpdatedAt<\/a>"],[100,1,"<a href=\"Entity\/Category.php.html#167\">App\\Entity\\Category::__toString<\/a>"],[100,1,"<a href=\"Entity\/Operation.php.html#62\">App\\Entity\\Operation::__construct<\/a>"],[100,1,"<a href=\"Entity\/Operation.php.html#73\">App\\Entity\\Operation::getId<\/a>"],[100,1,"<a href=\"Entity\/Operation.php.html#83\">App\\Entity\\Operation::getName<\/a>"],[100,1,"<a href=\"Entity\/Operation.php.html#95\">App\\Entity\\Operation::setName<\/a>"],[100,1,"<a href=\"Entity\/Operation.php.html#107\">App\\Entity\\Operation::getCreatedAt<\/a>"],[100,1,"<a href=\"Entity\/Operation.php.html#119\">App\\Entity\\Operation::setCreatedAt<\/a>"],[100,1,"<a href=\"Entity\/Operation.php.html#131\">App\\Entity\\Operation::getUpdatedAt<\/a>"],[100,1,"<a href=\"Entity\/Operation.php.html#143\">App\\Entity\\Operation::setUpdatedAt<\/a>"],[0,1,"<a href=\"Entity\/Operation.php.html#152\">App\\Entity\\Operation::__toString<\/a>"],[100,1,"<a href=\"Entity\/Payment.php.html#72\">App\\Entity\\Payment::__construct<\/a>"],[100,1,"<a href=\"Entity\/Payment.php.html#83\">App\\Entity\\Payment::getId<\/a>"],[100,1,"<a href=\"Entity\/Payment.php.html#93\">App\\Entity\\Payment::getName<\/a>"],[100,1,"<a href=\"Entity\/Payment.php.html#105\">App\\Entity\\Payment::setName<\/a>"],[100,1,"<a href=\"Entity\/Payment.php.html#117\">App\\Entity\\Payment::getCreatedAt<\/a>"],[100,1,"<a href=\"Entity\/Payment.php.html#129\">App\\Entity\\Payment::setCreatedAt<\/a>"],[100,1,"<a href=\"Entity\/Payment.php.html#141\">App\\Entity\\Payment::getUpdatedAt<\/a>"],[100,1,"<a href=\"Entity\/Payment.php.html#153\">App\\Entity\\Payment::setUpdatedAt<\/a>"],[100,1,"<a href=\"Entity\/Payment.php.html#163\">App\\Entity\\Payment::__toString<\/a>"],[100,1,"<a href=\"Entity\/Tag.php.html#43\">App\\Entity\\Tag::__construct<\/a>"],[100,1,"<a href=\"Entity\/Tag.php.html#54\">App\\Entity\\Tag::getId<\/a>"],[100,1,"<a href=\"Entity\/Tag.php.html#64\">App\\Entity\\Tag::getName<\/a>"],[100,1,"<a href=\"Entity\/Tag.php.html#94\">App\\Entity\\Tag::setName<\/a>"],[0,1,"<a href=\"Entity\/Tag.php.html#108\">App\\Entity\\Tag::getCreatedAt<\/a>"],[100,1,"<a href=\"Entity\/Tag.php.html#120\">App\\Entity\\Tag::setCreatedAt<\/a>"],[0,1,"<a href=\"Entity\/Tag.php.html#132\">App\\Entity\\Tag::getUpdatedAt<\/a>"],[100,1,"<a href=\"Entity\/Tag.php.html#144\">App\\Entity\\Tag::setUpdatedAt<\/a>"],[0,1,"<a href=\"Entity\/Tag.php.html#154\">App\\Entity\\Tag::__toString<\/a>"],[100,1,"<a href=\"Entity\/Transaction.php.html#146\">App\\Entity\\Transaction::__construct<\/a>"],[100,2,"<a href=\"Entity\/Transaction.php.html#158\">App\\Entity\\Transaction::getId<\/a>"],[0,1,"<a href=\"Entity\/Transaction.php.html#172\">App\\Entity\\Transaction::getName<\/a>"],[100,1,"<a href=\"Entity\/Transaction.php.html#184\">App\\Entity\\Transaction::setName<\/a>"],[0,1,"<a href=\"Entity\/Transaction.php.html#196\">App\\Entity\\Transaction::getDate<\/a>"],[100,1,"<a href=\"Entity\/Transaction.php.html#208\">App\\Entity\\Transaction::setDate<\/a>"],[0,1,"<a href=\"Entity\/Transaction.php.html#220\">App\\Entity\\Transaction::getAmount<\/a>"],[100,1,"<a href=\"Entity\/Transaction.php.html#232\">App\\Entity\\Transaction::setAmount<\/a>"],[0,1,"<a href=\"Entity\/Transaction.php.html#244\">App\\Entity\\Transaction::getCreatedAt<\/a>"],[100,1,"<a href=\"Entity\/Transaction.php.html#256\">App\\Entity\\Transaction::setCreatedAt<\/a>"],[0,1,"<a href=\"Entity\/Transaction.php.html#268\">App\\Entity\\Transaction::getUpdatedAt<\/a>"],[100,1,"<a href=\"Entity\/Transaction.php.html#280\">App\\Entity\\Transaction::setUpdatedAt<\/a>"],[0,1,"<a href=\"Entity\/Transaction.php.html#292\">App\\Entity\\Transaction::getCategory<\/a>"],[100,1,"<a href=\"Entity\/Transaction.php.html#304\">App\\Entity\\Transaction::setCategory<\/a>"],[0,1,"<a href=\"Entity\/Transaction.php.html#316\">App\\Entity\\Transaction::getWallet<\/a>"],[100,1,"<a href=\"Entity\/Transaction.php.html#328\">App\\Entity\\Transaction::setWallet<\/a>"],[0,1,"<a href=\"Entity\/Transaction.php.html#340\">App\\Entity\\Transaction::getPayment<\/a>"],[100,1,"<a href=\"Entity\/Transaction.php.html#352\">App\\Entity\\Transaction::setPayment<\/a>"],[0,1,"<a href=\"Entity\/Transaction.php.html#364\">App\\Entity\\Transaction::getOperation<\/a>"],[100,1,"<a href=\"Entity\/Transaction.php.html#376\">App\\Entity\\Transaction::setOperation<\/a>"],[0,1,"<a href=\"Entity\/Transaction.php.html#386\">App\\Entity\\Transaction::getTags<\/a>"],[100,2,"<a href=\"Entity\/Transaction.php.html#396\">App\\Entity\\Transaction::addTag<\/a>"],[0,1,"<a href=\"Entity\/Transaction.php.html#408\">App\\Entity\\Transaction::getAuthor<\/a>"],[100,1,"<a href=\"Entity\/Transaction.php.html#418\">App\\Entity\\Transaction::setAuthor<\/a>"],[100,1,"<a href=\"Entity\/User.php.html#74\">App\\Entity\\User::__construct<\/a>"],[0,1,"<a href=\"Entity\/User.php.html#85\">App\\Entity\\User::getId<\/a>"],[100,1,"<a href=\"Entity\/User.php.html#94\">App\\Entity\\User::getEmail<\/a>"],[100,1,"<a href=\"Entity\/User.php.html#103\">App\\Entity\\User::setEmail<\/a>"],[100,1,"<a href=\"Entity\/User.php.html#116\">App\\Entity\\User::getUserIdentifier<\/a>"],[0,1,"<a href=\"Entity\/User.php.html#123\">App\\Entity\\User::getUsername<\/a>"],[100,1,"<a href=\"Entity\/User.php.html#134\">App\\Entity\\User::getRoles<\/a>"],[100,1,"<a href=\"Entity\/User.php.html#146\">App\\Entity\\User::setRoles<\/a>"],[100,1,"<a href=\"Entity\/User.php.html#157\">App\\Entity\\User::getPassword<\/a>"],[100,1,"<a href=\"Entity\/User.php.html#168\">App\\Entity\\User::setPassword<\/a>"],[100,1,"<a href=\"Entity\/User.php.html#178\">App\\Entity\\User::getSalt<\/a>"],[100,1,"<a href=\"Entity\/User.php.html#187\">App\\Entity\\User::eraseCredentials<\/a>"],[0,1,"<a href=\"Entity\/User.php.html#198\">App\\Entity\\User::getCreatedAt<\/a>"],[100,1,"<a href=\"Entity\/User.php.html#209\">App\\Entity\\User::setCreatedAt<\/a>"],[0,1,"<a href=\"Entity\/User.php.html#220\">App\\Entity\\User::getUpdatedAt<\/a>"],[100,1,"<a href=\"Entity\/User.php.html#231\">App\\Entity\\User::setUpdatedAt<\/a>"],[0,1,"<a href=\"Entity\/User.php.html#243\">App\\Entity\\User::__toString<\/a>"],[100,1,"<a href=\"Entity\/Wallet.php.html#90\">App\\Entity\\Wallet::__construct<\/a>"],[100,1,"<a href=\"Entity\/Wallet.php.html#101\">App\\Entity\\Wallet::getId<\/a>"],[100,1,"<a href=\"Entity\/Wallet.php.html#111\">App\\Entity\\Wallet::getName<\/a>"],[100,1,"<a href=\"Entity\/Wallet.php.html#123\">App\\Entity\\Wallet::setName<\/a>"],[100,1,"<a href=\"Entity\/Wallet.php.html#135\">App\\Entity\\Wallet::getBalance<\/a>"],[100,1,"<a href=\"Entity\/Wallet.php.html#147\">App\\Entity\\Wallet::setBalance<\/a>"],[0,1,"<a href=\"Entity\/Wallet.php.html#159\">App\\Entity\\Wallet::getCreatedAt<\/a>"],[100,1,"<a href=\"Entity\/Wallet.php.html#171\">App\\Entity\\Wallet::setCreatedAt<\/a>"],[0,1,"<a href=\"Entity\/Wallet.php.html#183\">App\\Entity\\Wallet::getUpdatedAt<\/a>"],[100,1,"<a href=\"Entity\/Wallet.php.html#195\">App\\Entity\\Wallet::setUpdatedAt<\/a>"],[0,1,"<a href=\"Entity\/Wallet.php.html#205\">App\\Entity\\Wallet::getUser<\/a>"],[100,1,"<a href=\"Entity\/Wallet.php.html#215\">App\\Entity\\Wallet::setUser<\/a>"],[0,1,"<a href=\"Entity\/Wallet.php.html#225\">App\\Entity\\Wallet::__toString<\/a>"],[0,1,"<a href=\"Form\/DataTransformer\/TagsDataTransformer.php.html#30\">App\\Form\\DataTransformer\\TagsDataTransformer::__construct<\/a>"],[0,3,"<a href=\"Form\/DataTransformer\/TagsDataTransformer.php.html#42\">App\\Form\\DataTransformer\\TagsDataTransformer::transform<\/a>"],[0,4,"<a href=\"Form\/DataTransformer\/TagsDataTransformer.php.html#64\">App\\Form\\DataTransformer\\TagsDataTransformer::reverseTransform<\/a>"],[100,1,"<a href=\"Form\/Type\/CategoryType.php.html#30\">App\\Form\\Type\\CategoryType::buildForm<\/a>"],[100,1,"<a href=\"Form\/Type\/CategoryType.php.html#47\">App\\Form\\Type\\CategoryType::configureOptions<\/a>"],[100,1,"<a href=\"Form\/Type\/CategoryType.php.html#60\">App\\Form\\Type\\CategoryType::getBlockPrefix<\/a>"],[100,1,"<a href=\"Form\/Type\/OperationType.php.html#30\">App\\Form\\Type\\OperationType::buildForm<\/a>"],[100,1,"<a href=\"Form\/Type\/OperationType.php.html#50\">App\\Form\\Type\\OperationType::configureOptions<\/a>"],[100,1,"<a href=\"Form\/Type\/OperationType.php.html#63\">App\\Form\\Type\\OperationType::getBlockPrefix<\/a>"],[100,1,"<a href=\"Form\/Type\/PaymentType.php.html#30\">App\\Form\\Type\\PaymentType::buildForm<\/a>"],[100,1,"<a href=\"Form\/Type\/PaymentType.php.html#50\">App\\Form\\Type\\PaymentType::configureOptions<\/a>"],[100,1,"<a href=\"Form\/Type\/PaymentType.php.html#63\">App\\Form\\Type\\PaymentType::getBlockPrefix<\/a>"],[0,1,"<a href=\"Form\/Type\/RegistrationFormType.php.html#27\">App\\Form\\Type\\RegistrationFormType::buildForm<\/a>"],[0,1,"<a href=\"Form\/Type\/RegistrationFormType.php.html#54\">App\\Form\\Type\\RegistrationFormType::configureOptions<\/a>"],[100,1,"<a href=\"Form\/Type\/TagType.php.html#22\">App\\Form\\Type\\TagType::buildForm<\/a>"],[0,1,"<a href=\"Form\/Type\/TransactionType.php.html#40\">App\\Form\\Type\\TransactionType::__construct<\/a>"],[0,1,"<a href=\"Form\/Type\/TransactionType.php.html#57\">App\\Form\\Type\\TransactionType::buildForm<\/a>"],[0,1,"<a href=\"Form\/Type\/TransactionType.php.html#151\">App\\Form\\Type\\TransactionType::configureOptions<\/a>"],[0,1,"<a href=\"Form\/Type\/TransactionType.php.html#164\">App\\Form\\Type\\TransactionType::getBlockPrefix<\/a>"],[0,2,"<a href=\"Form\/Type\/UserType.php.html#33\">App\\Form\\Type\\UserType::buildForm<\/a>"],[0,1,"<a href=\"Form\/Type\/UserType.php.html#86\">App\\Form\\Type\\UserType::configureOptions<\/a>"],[0,1,"<a href=\"Form\/Type\/UserType.php.html#99\">App\\Form\\Type\\UserType::getBlockPrefix<\/a>"],[100,1,"<a href=\"Form\/Type\/WalletType.php.html#30\">App\\Form\\Type\\WalletType::buildForm<\/a>"],[100,1,"<a href=\"Form\/Type\/WalletType.php.html#58\">App\\Form\\Type\\WalletType::configureOptions<\/a>"],[100,1,"<a href=\"Form\/Type\/WalletType.php.html#71\">App\\Form\\Type\\WalletType::getBlockPrefix<\/a>"],[100,1,"<a href=\"Repository\/CategoryRepository.php.html#38\">App\\Repository\\CategoryRepository::__construct<\/a>"],[100,1,"<a href=\"Repository\/CategoryRepository.php.html#48\">App\\Repository\\CategoryRepository::queryAll<\/a>"],[100,1,"<a href=\"Repository\/CategoryRepository.php.html#62\">App\\Repository\\CategoryRepository::delete<\/a>"],[100,1,"<a href=\"Repository\/CategoryRepository.php.html#73\">App\\Repository\\CategoryRepository::save<\/a>"],[100,1,"<a href=\"Repository\/CategoryRepository.php.html#85\">App\\Repository\\CategoryRepository::getOrCreateQueryBuilder<\/a>"],[100,1,"<a href=\"Repository\/OperationRepository.php.html#39\">App\\Repository\\OperationRepository::__construct<\/a>"],[100,1,"<a href=\"Repository\/OperationRepository.php.html#49\">App\\Repository\\OperationRepository::queryAll<\/a>"],[100,1,"<a href=\"Repository\/OperationRepository.php.html#61\">App\\Repository\\OperationRepository::delete<\/a>"],[100,1,"<a href=\"Repository\/OperationRepository.php.html#72\">App\\Repository\\OperationRepository::save<\/a>"],[100,1,"<a href=\"Repository\/OperationRepository.php.html#84\">App\\Repository\\OperationRepository::getOrCreateQueryBuilder<\/a>"],[100,1,"<a href=\"Repository\/PaymentRepository.php.html#38\">App\\Repository\\PaymentRepository::__construct<\/a>"],[100,1,"<a href=\"Repository\/PaymentRepository.php.html#48\">App\\Repository\\PaymentRepository::queryAll<\/a>"],[100,1,"<a href=\"Repository\/PaymentRepository.php.html#60\">App\\Repository\\PaymentRepository::delete<\/a>"],[100,1,"<a href=\"Repository\/PaymentRepository.php.html#71\">App\\Repository\\PaymentRepository::save<\/a>"],[100,1,"<a href=\"Repository\/PaymentRepository.php.html#83\">App\\Repository\\PaymentRepository::getOrCreateQueryBuilder<\/a>"],[100,1,"<a href=\"Repository\/TagRepository.php.html#36\">App\\Repository\\TagRepository::__construct<\/a>"],[100,1,"<a href=\"Repository\/TagRepository.php.html#46\">App\\Repository\\TagRepository::queryAll<\/a>"],[0,2,"<a href=\"Repository\/TagRepository.php.html#58\">App\\Repository\\TagRepository::add<\/a>"],[0,2,"<a href=\"Repository\/TagRepository.php.html#72\">App\\Repository\\TagRepository::remove<\/a>"],[0,1,"<a href=\"Repository\/TagRepository.php.html#89\">App\\Repository\\TagRepository::findOneByName<\/a>"],[100,1,"<a href=\"Repository\/TagRepository.php.html#103\">App\\Repository\\TagRepository::save<\/a>"],[100,1,"<a href=\"Repository\/TagRepository.php.html#116\">App\\Repository\\TagRepository::getOrCreateQueryBuilder<\/a>"],[100,1,"<a href=\"Repository\/TransactionRepository.php.html#47\">App\\Repository\\TransactionRepository::__construct<\/a>"],[0,1,"<a href=\"Repository\/TransactionRepository.php.html#57\">App\\Repository\\TransactionRepository::queryAll<\/a>"],[100,1,"<a href=\"Repository\/TransactionRepository.php.html#85\">App\\Repository\\TransactionRepository::countByCategory<\/a>"],[0,1,"<a href=\"Repository\/TransactionRepository.php.html#106\">App\\Repository\\TransactionRepository::countByOperation<\/a>"],[0,1,"<a href=\"Repository\/TransactionRepository.php.html#127\">App\\Repository\\TransactionRepository::countByPayment<\/a>"],[100,1,"<a href=\"Repository\/TransactionRepository.php.html#143\">App\\Repository\\TransactionRepository::save<\/a>"],[100,1,"<a href=\"Repository\/TransactionRepository.php.html#154\">App\\Repository\\TransactionRepository::delete<\/a>"],[0,1,"<a href=\"Repository\/TransactionRepository.php.html#167\">App\\Repository\\TransactionRepository::queryByAuthor<\/a>"],[100,1,"<a href=\"Repository\/TransactionRepository.php.html#182\">App\\Repository\\TransactionRepository::getOrCreateQueryBuilder<\/a>"],[100,1,"<a href=\"Repository\/UserRepository.php.html#28\">App\\Repository\\UserRepository::__construct<\/a>"],[0,1,"<a href=\"Repository\/UserRepository.php.html#38\">App\\Repository\\UserRepository::queryAll<\/a>"],[0,2,"<a href=\"Repository\/UserRepository.php.html#50\">App\\Repository\\UserRepository::add<\/a>"],[0,2,"<a href=\"Repository\/UserRepository.php.html#63\">App\\Repository\\UserRepository::remove<\/a>"],[100,1,"<a href=\"Repository\/UserRepository.php.html#76\">App\\Repository\\UserRepository::save<\/a>"],[0,1,"<a href=\"Repository\/UserRepository.php.html#88\">App\\Repository\\UserRepository::getOrCreateQueryBuilder<\/a>"],[100,1,"<a href=\"Repository\/WalletRepository.php.html#30\">App\\Repository\\WalletRepository::__construct<\/a>"],[0,2,"<a href=\"Repository\/WalletRepository.php.html#41\">App\\Repository\\WalletRepository::add<\/a>"],[0,1,"<a href=\"Repository\/WalletRepository.php.html#54\">App\\Repository\\WalletRepository::queryAll<\/a>"],[0,2,"<a href=\"Repository\/WalletRepository.php.html#66\">App\\Repository\\WalletRepository::remove<\/a>"],[100,1,"<a href=\"Repository\/WalletRepository.php.html#79\">App\\Repository\\WalletRepository::save<\/a>"],[0,1,"<a href=\"Repository\/WalletRepository.php.html#92\">App\\Repository\\WalletRepository::queryByAuthor<\/a>"],[100,1,"<a href=\"Repository\/WalletRepository.php.html#106\">App\\Repository\\WalletRepository::delete<\/a>"],[0,1,"<a href=\"Repository\/WalletRepository.php.html#119\">App\\Repository\\WalletRepository::getOrCreateQueryBuilder<\/a>"],[100,1,"<a href=\"Security\/LoginFormAuthenticator.php.html#53\">App\\Security\\LoginFormAuthenticator::__construct<\/a>"],[0,1,"<a href=\"Security\/LoginFormAuthenticator.php.html#75\">App\\Security\\LoginFormAuthenticator::authenticate<\/a>"],[0,2,"<a href=\"Security\/LoginFormAuthenticator.php.html#107\">App\\Security\\LoginFormAuthenticator::onAuthenticationSuccess<\/a>"],[100,2,"<a href=\"Security\/LoginFormAuthenticator.php.html#121\">App\\Security\\LoginFormAuthenticator::supports<\/a>"],[100,1,"<a href=\"Security\/LoginFormAuthenticator.php.html#134\">App\\Security\\LoginFormAuthenticator::getLoginUrl<\/a>"],[100,1,"<a href=\"Security\/Voter\/TransactionVoter.php.html#52\">App\\Security\\Voter\\TransactionVoter::__construct<\/a>"],[100,2,"<a href=\"Security\/Voter\/TransactionVoter.php.html#65\">App\\Security\\Voter\\TransactionVoter::supports<\/a>"],[0,2,"<a href=\"Security\/Voter\/TransactionVoter.php.html#81\">App\\Security\\Voter\\TransactionVoter::voteOnAttribute<\/a>"],[0,2,"<a href=\"Security\/Voter\/TransactionVoter.php.html#104\">App\\Security\\Voter\\TransactionVoter::canEdit<\/a>"],[0,2,"<a href=\"Security\/Voter\/TransactionVoter.php.html#118\">App\\Security\\Voter\\TransactionVoter::canView<\/a>"],[0,2,"<a href=\"Security\/Voter\/TransactionVoter.php.html#132\">App\\Security\\Voter\\TransactionVoter::canDelete<\/a>"],[100,1,"<a href=\"Security\/Voter\/WalletVoter.php.html#52\">App\\Security\\Voter\\WalletVoter::__construct<\/a>"],[100,2,"<a href=\"Security\/Voter\/WalletVoter.php.html#65\">App\\Security\\Voter\\WalletVoter::supports<\/a>"],[0,2,"<a href=\"Security\/Voter\/WalletVoter.php.html#81\">App\\Security\\Voter\\WalletVoter::voteOnAttribute<\/a>"],[0,2,"<a href=\"Security\/Voter\/WalletVoter.php.html#104\">App\\Security\\Voter\\WalletVoter::canEdit<\/a>"],[0,2,"<a href=\"Security\/Voter\/WalletVoter.php.html#118\">App\\Security\\Voter\\WalletVoter::canView<\/a>"],[0,2,"<a href=\"Security\/Voter\/WalletVoter.php.html#132\">App\\Security\\Voter\\WalletVoter::canDelete<\/a>"],[100,1,"<a href=\"Service\/CategoryService.php.html#41\">App\\Service\\CategoryService::__construct<\/a>"],[60,2,"<a href=\"Service\/CategoryService.php.html#56\">App\\Service\\CategoryService::getPaginatedList<\/a>"],[100,2,"<a href=\"Service\/CategoryService.php.html#78\">App\\Service\\CategoryService::save<\/a>"],[100,1,"<a href=\"Service\/CategoryService.php.html#93\">App\\Service\\CategoryService::delete<\/a>"],[100,1,"<a href=\"Service\/CategoryService.php.html#105\">App\\Service\\CategoryService::findOneById<\/a>"],[50,2,"<a href=\"Service\/CategoryService.php.html#117\">App\\Service\\CategoryService::canBeDeleted<\/a>"],[100,1,"<a href=\"Service\/OperationService.php.html#35\">App\\Service\\OperationService::__construct<\/a>"],[100,1,"<a href=\"Service\/OperationService.php.html#48\">App\\Service\\OperationService::getPaginatedList<\/a>"],[100,2,"<a href=\"Service\/OperationService.php.html#62\">App\\Service\\OperationService::save<\/a>"],[100,1,"<a href=\"Service\/OperationService.php.html#77\">App\\Service\\OperationService::delete<\/a>"],[100,1,"<a href=\"Service\/PaymentService.php.html#35\">App\\Service\\PaymentService::__construct<\/a>"],[100,1,"<a href=\"Service\/PaymentService.php.html#48\">App\\Service\\PaymentService::getPaginatedList<\/a>"],[100,2,"<a href=\"Service\/PaymentService.php.html#62\">App\\Service\\PaymentService::save<\/a>"],[100,1,"<a href=\"Service\/PaymentService.php.html#77\">App\\Service\\PaymentService::delete<\/a>"],[100,1,"<a href=\"Service\/TagService.php.html#35\">App\\Service\\TagService::__construct<\/a>"],[100,1,"<a href=\"Service\/TagService.php.html#48\">App\\Service\\TagService::getPaginatedList<\/a>"],[100,2,"<a href=\"Service\/TagService.php.html#62\">App\\Service\\TagService::save<\/a>"],[100,1,"<a href=\"Service\/TagService.php.html#77\">App\\Service\\TagService::delete<\/a>"],[100,1,"<a href=\"Service\/TransactionService.php.html#37\">App\\Service\\TransactionService::__construct<\/a>"],[0,2,"<a href=\"Service\/TransactionService.php.html#51\">App\\Service\\TransactionService::getPaginatedList<\/a>"],[75,2,"<a href=\"Service\/TransactionService.php.html#73\">App\\Service\\TransactionService::save<\/a>"],[100,1,"<a href=\"Service\/TransactionService.php.html#88\">App\\Service\\TransactionService::delete<\/a>"],[0,1,"<a href=\"Service\/UserService.php.html#35\">App\\Service\\UserService::__construct<\/a>"],[0,1,"<a href=\"Service\/UserService.php.html#48\">App\\Service\\UserService::getPaginatedList<\/a>"],[0,2,"<a href=\"Service\/UserService.php.html#62\">App\\Service\\UserService::save<\/a>"],[0,1,"<a href=\"Service\/UserService.php.html#77\">App\\Service\\UserService::delete<\/a>"],[0,1,"<a href=\"Service\/UserService.php.html#89\">App\\Service\\UserService::findOneById<\/a>"],[100,1,"<a href=\"Service\/WalletService.php.html#38\">App\\Service\\WalletService::__construct<\/a>"],[0,2,"<a href=\"Service\/WalletService.php.html#52\">App\\Service\\WalletService::getPaginatedList<\/a>"],[100,2,"<a href=\"Service\/WalletService.php.html#74\">App\\Service\\WalletService::save<\/a>"],[100,1,"<a href=\"Service\/WalletService.php.html#89\">App\\Service\\WalletService::delete<\/a>"],[0,1,"<a href=\"Entity\/Enum\/UserRole.php.html#20\">App\\Entity\\Enum\\UserRole::label<\/a>"]], 'Method Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getComplexityData(data, label) {
+    var values = [];
+    $.each(data, function(key) {
+      var value = Math.round(data[key][0]*100) / 100;
+      values.push({
+        x: value,
+        y: data[key][1],
+        class: data[key][2],
+        size: 0.05,
+        shape: 'diamond'
+      });
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+});
+  </script>
+ </body>
+</html>

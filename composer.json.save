@@ -1,0 +1,109 @@
+{
+    "type": "project",
+    "license": "proprietary",
+    "minimum-stability": "stable",
+    "prefer-stable": true,
+    "require": {
+        "php": ">=8.1",
+        "ext-ctype": "*",
+        "ext-iconv": "*",
+        "doctrine/annotations": "^1.0",
+        "doctrine/doctrine-bundle": "^2.6",
+        "doctrine/doctrine-migrations-bundle": "^3.2",
+        "doctrine/orm": "^2.12",
+        "knplabs/knp-paginator-bundle": "^5.8",
+        "phpdocumentor/reflection-docblock": "^5.3",
+        "phpstan/phpdoc-parser": "^1.4",
+        "sensio/framework-extra-bundle": "^6.1",
+        "symfony/asset": "5.4.x",
+        "symfony/console": "5.4.x",
+        "symfony/dotenv": "5.4.*",
+        "symfony/expression-language": "5.4.x",
+        "symfony/flex": "^1.17|^2",
+        "symfony/form": "5.4.x",
+        "symfony/framework-bundle": "5.4.x",
+        "symfony/http-client": "5.4.x",
+        "symfony/intl": "5.4.x",
+        "symfony/mailer": "5.4.x",
+        "symfony/mime": "5.4.x",
+        "symfony/monolog-bundle": "^3.1",
+        "symfony/notifier": "5.4.x",
+        "symfony/process": "5.4.x",
+        "symfony/property-access": "5.4.x",
+        "symfony/property-info": "5.4.x",
+        "symfony/proxy-manager-bridge": "5.4.x",
+        "symfony/runtime": "5.4.x",
+        "symfony/security-bundle": "5.4.x",
+        "symfony/serializer": "5.4.x",
+        "symfony/string": "5.4.x",
+        "symfony/translation": "5.4.x",
+        "symfony/twig-bundle": "5.4.x",
+        "symfony/validator": "5.4.x",
+        "symfony/web-link": "5.4.x",
+        "symfony/yaml": "5.4.x",
+        "twig/extra-bundle": "^3.0",
+        "twig/intl-extra": "^3.3",
+        "twig/twig": "^3.0"
+    },
+    "require-dev": {
+        "doctrine/doctrine-fixtures-bundle": "^3.4",
+        "fakerphp/faker": "^1.19",
+        "friendsofphp/php-cs-fixer": "^3.8",
+        "phpunit/phpunit": "^9.5",
+        "symfony/browser-kit": "5.4.x",
+        "symfony/css-selector": "5.4.x",
+        "symfony/debug-bundle": "5.4.x",
+        "symfony/maker-bundle": "^1.40",
+        "symfony/phpunit-bridge": "^5.4",
+        "symfony/stopwatch": "5.4.x",
+        "symfony/web-profiler-bundle": "5.4.x"
+    },
+    "config": {
+        "allow-plugins": {
+            "composer/package-versions-deprecated": true,
+M-W            "symfony/flex": true,
+            "symfony/runtime": true
+        },
+        "optimize-autoloader": true,
+        "preferred-install": {
+            "*": "dist"
+        },
+        "sort-packages": true
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "App\\Tests\\": "tests/"
+        }
+    },
+    "replace": {
+        "symfony/polyfill-ctype": "*",
+        "symfony/polyfill-iconv": "*",
+        "symfony/polyfill-php72": "*"
+    },
+    "scripts": {
+        "auto-scripts": {
+            "cache:clear": "symfony-cmd",
+            "assets:install %PUBLIC_DIR%": "symfony-cmd"
+        },
+        "post-install-cmd": [
+            "@auto-scripts"
+        ],
+        "post-update-cmd": [
+            "@auto-scripts"
+        ]
+    },
+    "conflict": {
+        "symfony/symfony": "*"
+    },
+    "extra": {
+        "symfony": {
+            "allow-contrib": false,
+            "require": "5.4.*"
+        }
+    }
+}

@@ -1,0 +1,75 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ 'title.transaction_list'|trans }}
+{% endblock %}
+
+{% block body %}
+    <h1>{{ 'title.transaction_list'|trans }}</h1>
+    {% if pagination is defined and pagination.items|length %}
+
+        <div class="navigation text-center">
+            {{ knp_pagination_render(pagination) }}
+        </div>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>{{ knp_pagination_sortable(pagination, 'label.id'|trans, 'transaction.id') }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'label.name'|trans, 'transaction.name') }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'label.date'|trans, 'transaction.date') }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'label.amount'|trans, 'transaction.amount') }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'label.category'|trans, 'category.name') }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'label.wallet'|trans, 'wallet.name') }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'label.payment'|trans, 'payment.name') }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'label.operation'|trans, 'operation.name') }}</th>
+                <th>{{ 'label.action'|trans }}</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for transaction in pagination.items %}
+                <tr>
+                    <td>{{ transaction.id }}</td>
+
+                    <td>{{ transaction.name }}</td>
+                    <td>{{ transaction.date|date("m.d.Y") }}</td>
+                    <td>{{ transaction.amount }}</td>
+                    <td>
+                        <a href="{{ path('category_show', {'id': transaction.category.id}) }}">{{ transaction.category.name }}</a>
+                    </td>
+                    <td>
+                        <a href="{{ path('wallet_show', {'id': transaction.wallet.id}) }}"> {{ transaction.wallet.name }}</a>
+                    </td>
+                    <td>
+                        <a href="{{ path('payment_show', {'id': transaction.payment.id}) }}">{{ transaction.payment.name }}</a>
+                    </td>
+                    <td>
+                        <a href="{{ path('operation_show', {'id': transaction.operation.id}) }}">{{ transaction.operation.name }}</a>
+                    </td>
+
+                    <td>
+                        {% if is_granted('VIEW', transaction) %}
+                            <a class="btn btn-primary" href="{{ url('transaction_show', {id: transaction.id}) }}"
+                               title="{{ 'action.view'|trans }}">
+                                {{ 'action.view'|trans }}
+                            </a>
+                        {% endif %}
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <div class="navigation text-center">
+        {{ knp_pagination_render(pagination) }}
+    </div>
+
+    {% else %}
+        <p>
+            {{ 'message.empty_list'|trans }}
+        </p>
+    {% endif %}
+    <div class="btn btn-light">
+        <a class="btn btn-primary" href="{{ url('transaction_create') }}" title="{{ 'action.create'|trans }}">
+                {{ 'action.create'|trans }}</a>
+    </div>
+{% endblock %}
