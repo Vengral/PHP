@@ -13,6 +13,10 @@ use Symfony\Component\Form\FormBuilderInterface;
  */
 class TagType extends AbstractType
 {
+    /**
+     * @param FormBuilderInterface options $builder
+     * @param array               options  $options
+     */
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder

@@ -66,6 +66,8 @@ class Payment
 
     /**
      * Getter for Id.
+     *
+     * @return int|null options int
      */
     public function getId(): ?int
     {
@@ -98,6 +100,8 @@ class Payment
 
     /**
      * Getter for Create At.
+     *
+     * @return DateTimeInterface|null options DateTime
      */
     public function getCreatedAt(): ?DateTimeInterface
     {
@@ -106,6 +110,8 @@ class Payment
 
     /**
      * Setter for Create At.
+     *
+     * @param DateTimeInterface options $createdAt
      *
      * @return $this
      */
@@ -118,6 +124,8 @@ class Payment
 
     /**
      * Getter for Update At.
+     *
+     * @return DateTimeInterface|null options DateTimeInterface
      */
     public function getUpdatedAt(): ?DateTimeInterface
     {
@@ -126,6 +134,8 @@ class Payment
 
     /**
      * Setter for Update At.
+     *
+     * @param DateTimeInterface options $updatedAt
      *
      * @return $this
      */

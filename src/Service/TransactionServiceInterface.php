@@ -17,7 +17,8 @@ interface TransactionServiceInterface
     /**
      * Get paginated list.
      *
-     * @param int $page Page number
+     * @param int  $page   Page number
+     * @param User $author User author
      *
      * @return PaginationInterface<string, mixed> Paginated list
      */

@@ -394,6 +394,8 @@ class Transaction
 
     /**
      * Getter for Comment.
+     *
+     * @return string|null options string
      */
     public function getComment(): ?string
     {
@@ -402,6 +404,8 @@ class Transaction
 
     /**
      * Setter for Comment.
+     *
+     * @param string|null options $comment
      *
      * @return $this
      */
@@ -421,6 +425,8 @@ class Transaction
     }
 
     /**
+     * @param Tag options $tag
+     *
      * @return $this
      */
     public function addTag(Tag $tag): self
@@ -433,6 +439,8 @@ class Transaction
     }
 
     /**
+     * @param Tag options $tag
+     *
      * @return $this
      */
     public function removeTag(Tag $tag): self
@@ -442,12 +450,17 @@ class Transaction
         return $this;
     }
 
+    /**
+     * @return User|null options user
+     */
     public function getAuthor(): ?User
     {
         return $this->author;
     }
 
     /**
+     * @param User|null options $author
+     *
      * @return $this
      */
     public function setAuthor(?User $author): self

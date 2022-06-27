@@ -34,6 +34,9 @@ class WalletController extends AbstractController
 
     /**
      * Constructor.
+     *
+     * @param WalletServiceInterface Options $walletService
+     * @param TranslatorInterface    Options $translator
      */
     public function __construct(WalletServiceInterface $walletService, TranslatorInterface $translator)
     {

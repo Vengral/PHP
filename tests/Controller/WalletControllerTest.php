@@ -9,7 +9,6 @@ use App\Entity\Enum\UserRole;
 use App\Entity\Wallet;
 use App\Repository\WalletRepository;
 use App\Tests\WebBaseTestCase;
-use DateTime;
 
 /**
  * Class WalletControllerTest.
@@ -58,34 +57,6 @@ class WalletControllerTest extends WebBaseTestCase
 
         // then
         $this->assertEquals($expectedStatusCode, $resultStatusCode);
-    }
-
-    /**
-     * Test create film for admin user.
-     */
-    public function testCreateWalletAdminUser(): void
-    {
-        // given
-        $user = $this->createUser([UserRole::ROLE_USER->value],
-            'wallet_created_user1@example.com');
-        $this->httpClient->loginUser($user);
-        $expected = "name";
-        $walletRepository = self::getContainer()->get(WalletRepository::class);
-        // when
-        $this->httpClient->request('GET', '/wallet/create');
-
-        $this->httpClient->submitForm(
-            'utworzenie',
-            ['wallet' =>
-                [
-                    'name' => $expected,
-                    'balance' => 300,
-                ]
-            ]
-        );
-
-        $this->assertEquals($expected, $walletRepository->findOneByName($expected)->getName());
-
     }
 
 

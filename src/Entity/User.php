@@ -105,12 +105,17 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * A visual identifier that represents this user.
      *
      * @see UserInterface
+     *
+     * @return string options string
      */
     public function getUserIdentifier(): string
     {
         return (string) $this->email;
     }
 
+    /**
+     * @return string options string
+     */
     public function getUsername(): string
     {
         return (string) $this->email;
@@ -155,6 +160,8 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     /**
      * Setter for password.
+     *
+     * @param string options $password
      */
     public function setPassword(string $password): void
     {
@@ -164,6 +171,8 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * Returning a salt is only needed, if you are not using a modern
      * hashing algorithm (e.g. bcrypt or sodium) in your security.yaml.
+     *
+     * @return string|null options string
      */
     public function getSalt(): ?string
     {
@@ -181,9 +190,10 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         // $this->plainPassword = null;
     }
 
-    // region created updated
     /**
      * Getter for Create At.
+     *
+     * @return DateTimeInterface|null options datetime
      */
     public function getCreatedAt(): ?DateTimeInterface
     {
@@ -193,7 +203,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * Setter for Create At.
      *
-     * @return $this
+     * @param DateTimeInterface options $createdAt
+     *
+     * @return $this options this
      */
     public function setCreatedAt(DateTimeInterface $createdAt): self
     {
@@ -204,6 +216,8 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     /**
      * Getter for Update At.
+     *
+     * @return DateTimeInterface|null options date time
      */
     public function getUpdatedAt(): ?DateTimeInterface
     {
@@ -213,6 +227,8 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * Setter for Update At.
      *
+     * @param DateTimeInterface options $updatedAt
+     *
      * @return $this
      */
     public function setUpdatedAt(DateTimeInterface $updatedAt): self
@@ -221,8 +237,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
         return $this;
     }
-
-    // endregion
 
     /**
      * @return string|null

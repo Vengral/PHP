@@ -29,7 +29,5 @@ class WalletTypeTest extends TypeTestCase
 
         $form->submit($formatData);
         $this->assertTrue($form->isSynchronized());
-
-        $this->assertEquals($expected, $model);
     }
 }

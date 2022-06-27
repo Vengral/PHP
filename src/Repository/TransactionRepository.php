@@ -37,7 +37,7 @@ class TransactionRepository extends ServiceEntityRepository
      *
      * @constant int
      */
-    public const PAGINATOR_ITEMS_PER_PAGE = 5;
+    public const PAGINATOR_ITEMS_PER_PAGE = 10;
 
     /**
      * Constructor.
@@ -58,7 +58,7 @@ class TransactionRepository extends ServiceEntityRepository
     {
         return $this->getOrCreateQueryBuilder()
             ->select(
-                'partial transaction.{id, date, createdAt, updatedAt, name}',
+                'partial transaction.{id, date, createdAt, updatedAt, name, amount}',
                 'partial payment.{id, name}',
                 'partial category.{id, name}',
                 'partial wallet.{id, name}',
@@ -78,19 +78,20 @@ class TransactionRepository extends ServiceEntityRepository
      * @param Category $category Category
      *
      * @return int Number of transaction in category
-     *
-     * @throws NoResultException
-     * @throws NonUniqueResultException
      */
     public function countByCategory(Category $category): int
     {
         $qb = $this->getOrCreateQueryBuilder();
 
-        return $qb->select($qb->expr()->countDistinct('transaction.id'))
-            ->where('transaction.category = :category')
-            ->setParameter(':category', $category)
-            ->getQuery()
-            ->getSingleScalarResult();
+        try {
+            return $qb->select($qb->expr()->countDistinct('transaction.id'))
+                ->where('transaction.category = :category')
+                ->setParameter(':category', $category)
+                ->getQuery()
+                ->getSingleScalarResult();
+        } catch (NoResultException|NonUniqueResultException $e) {
+            return 999;
+        }
     }
 
     /**
@@ -99,19 +100,20 @@ class TransactionRepository extends ServiceEntityRepository
      * @param Operation $operation Operation
      *
      * @return int Number of transaction in operation
-     *
-     * @throws NoResultException
-     * @throws NonUniqueResultException
      */
     public function countByOperation(Operation $operation): int
     {
         $qb = $this->getOrCreateQueryBuilder();
 
-        return $qb->select($qb->expr()->countDistinct('transaction.id'))
-            ->where('transaction.operation = :operation')
-            ->setParameter(':operation', $operation)
-            ->getQuery()
-            ->getSingleScalarResult();
+        try {
+            return $qb->select($qb->expr()->countDistinct('transaction.id'))
+                ->where('transaction.operation = :operation')
+                ->setParameter(':operation', $operation)
+                ->getQuery()
+                ->getSingleScalarResult();
+        } catch (NoResultException|NonUniqueResultException $e) {
+            return 999;
+        }
     }
 
     /**
@@ -120,19 +122,42 @@ class TransactionRepository extends ServiceEntityRepository
      * @param Payment $payment Payment
      *
      * @return int Number of transaction in payment
-     *
-     * @throws NoResultException
-     * @throws NonUniqueResultException
      */
     public function countByPayment(Payment $payment): int
     {
         $qb = $this->getOrCreateQueryBuilder();
 
-        return $qb->select($qb->expr()->countDistinct('transaction.id'))
-            ->where('transaction.payment = :payment')
-            ->setParameter(':payment', $payment)
-            ->getQuery()
-            ->getSingleScalarResult();
+        try {
+            return $qb->select($qb->expr()->countDistinct('transaction.id'))
+                ->where('transaction.payment = :payment')
+                ->setParameter(':payment', $payment)
+                ->getQuery()
+                ->getSingleScalarResult();
+        } catch (NoResultException|NonUniqueResultException $e) {
+            return 999;
+        }
+    }
+
+    /**
+     * Count transaction by user.
+     *
+     * @param User $user User
+     *
+     * @return int Number of transaction in user
+     */
+    public function countByUser(User $user): int
+    {
+        $qb = $this->getOrCreateQueryBuilder();
+
+        try {
+            return $qb->select($qb->expr()->countDistinct('transaction.id'))
+                ->where('transaction.author = :author')
+                ->setParameter(':author', $user)
+                ->getQuery()
+                ->getSingleScalarResult();
+        } catch (NoResultException|NonUniqueResultException $e) {
+            return 999;
+        }
     }
 
     /**
@@ -180,7 +205,7 @@ class TransactionRepository extends ServiceEntityRepository
      *
      * @return QueryBuilder Query builder
      */
-    private function getOrCreateQueryBuilder(QueryBuilder $queryBuilder = null): QueryBuilder
+    private function getOrCreateQueryBuilder(?QueryBuilder $queryBuilder = null): QueryBuilder
     {
         return $queryBuilder ?? $this->createQueryBuilder('transaction');
     }

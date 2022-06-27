@@ -105,6 +105,8 @@ class Category
 
     /**
      * Getter for Create At.
+     *
+     * @return DateTimeInterface|null options datetime
      */
     public function getCreatedAt(): ?DateTimeInterface
     {
@@ -113,6 +115,8 @@ class Category
 
     /**
      * Setter for Create At.
+     *
+     * @param DateTimeInterface options $createdAt
      *
      * @return $this
      */
@@ -125,6 +129,8 @@ class Category
 
     /**
      * Getter for Update At.
+     *
+     * @return DateTimeInterface|null options datetimeinterface
      */
     public function getUpdatedAt(): ?DateTimeInterface
     {
@@ -133,6 +139,8 @@ class Category
 
     /**
      * Setter for Update At.
+     *
+     * @param DateTimeInterface options $updatedAt
      *
      * @return $this
      */

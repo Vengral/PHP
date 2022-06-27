@@ -7,10 +7,7 @@ namespace App\Tests\Controller;
 
 use App\Entity\Category;
 use App\Entity\Enum\UserRole;
-use App\Entity\Transaction;
-use App\Entity\User;
 use App\Repository\CategoryRepository;
-use App\Repository\TransactionRepository;
 use App\Tests\WebBaseTestCase;
 use DateTime;
 use Doctrine\ORM\OptimisticLockException;
@@ -280,38 +277,7 @@ class CategoryControllerTest extends WebBaseTestCase
         $this->assertNull($categoryRepository->findOneByName('TestCategoryCreated'));
     }
 
-    /**
-     * @return void
-     */
-    public function testCantDeleteCategory(): void
-    {
-        // given
-        $user = null;
-        try {
-            $user = $this->createUser([UserRole::ROLE_USER->value],
-                'category_deleted_user2@example.com');
-        } catch (OptimisticLockException|ORMException|NotFoundExceptionInterface|ContainerExceptionInterface $e) {
-        }
-        $this->httpClient->loginUser($user);
 
-        $categoryRepository =
-            static::getContainer()->get(CategoryRepository::class);
-        $testCategory = new Category();
-        $testCategory->setName('TestCategoryCreated2');
-        $testCategory->setCreatedAt(new DateTime('now'));
-        $testCategory->setUpdatedAt(new DateTime('now'));
-        $categoryRepository->save($testCategory);
-        $testCategoryId = $testCategory->getId();
-
-        $this->createTransaction($user, $testCategory);
-
-        //when
-        $this->httpClient->request('GET', self::TEST_ROUTE . '/' . $testCategoryId . '/delete');
-
-        // then
-        $this->assertEquals(302, $this->httpClient->getResponse()->getStatusCode());
-        $this->assertNotNull($categoryRepository->findOneByName('TestCategoryCreated2'));
-    }
 
 
 }

@@ -39,6 +39,8 @@ class UserController extends AbstractController
 
     /**
      * Constructor.
+     *
+     * @param UserServiceInterface Options $userService
      */
     public function __construct(UserServiceInterface $userService)
     {

@@ -33,8 +33,9 @@ class PaymentService implements PaymentServiceInterface
     /**
      * Constructor.
      *
-     * @param PaymentRepository  $paymentRepository Payment repository
-     * @param PaginatorInterface $paginator         Paginator
+     * @param PaymentRepository     $paymentRepository     Payment repository
+     * @param TransactionRepository $transactionRepository options transactions
+     * @param PaginatorInterface    $paginator             options Paginator
      */
     public function __construct(PaymentRepository $paymentRepository, TransactionRepository $transactionRepository, PaginatorInterface $paginator)
     {
@@ -46,13 +47,14 @@ class PaymentService implements PaymentServiceInterface
     /**
      * Get paginated list.
      *
-     * @param int $page Page number
+     * @param int         $page Page number
+     * @param string|null $name options
      *
      * @return PaginationInterface<string, mixed> Paginated list
      */
     public function getPaginatedList(int $page, ?string $name = null): PaginationInterface
     {
-        if (null == $name) {
+        if (null === $name) {
             return $this->paginator->paginate(
                 $this->paymentRepository->queryAll(),
                 $page,
@@ -74,7 +76,7 @@ class PaymentService implements PaymentServiceInterface
      */
     public function save(Payment $payment): void
     {
-        if (null == $payment->getId()) {
+        if (null === $payment->getId()) {
             $payment->setCreatedAt(new DateTimeImmutable());
         }
         $payment->setUpdatedAt(new DateTimeImmutable());

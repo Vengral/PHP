@@ -38,8 +38,9 @@ class WalletService implements WalletServiceInterface
     /**
      * Constructor.
      *
-     * @param WalletRepository   $walletRepository Wallet repository
-     * @param PaginatorInterface $paginator        Paginator
+     * @param WalletRepository      $walletRepository      Wallet repository
+     * @param TransactionRepository $transactionRepository options
+     * @param PaginatorInterface    $paginator             Paginator
      */
     public function __construct(WalletRepository $walletRepository, TransactionRepository $transactionRepository, PaginatorInterface $paginator)
     {
@@ -51,7 +52,8 @@ class WalletService implements WalletServiceInterface
     /**
      * Get paginated list.
      *
-     * @param int $page Page number
+     * @param int  $page Page number
+     * @param User $user options user
      *
      * @return PaginationInterface<string, mixed> Paginated list
      */
@@ -79,7 +81,7 @@ class WalletService implements WalletServiceInterface
      */
     public function save(Wallet $wallet): void
     {
-        if (null == $wallet->getId()) {
+        if (null === $wallet->getId()) {
             $wallet->setCreatedAt(new DateTimeImmutable());
         }
         $wallet->setUpdatedAt(new DateTimeImmutable());
@@ -103,5 +105,15 @@ class WalletService implements WalletServiceInterface
         } catch (NoResultException|NonUniqueResultException) {
             return false;
         }
+    }
+
+    /**
+     * Delete category.
+     *
+     * @param Wallet $category Category entity
+     */
+    public function delete(Wallet $category): void
+    {
+        $this->walletRepository->delete($category);
     }
 }

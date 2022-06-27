@@ -14,6 +14,7 @@ use App\Form\DataTransformer\TagsDataTransformer;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -41,9 +42,7 @@ class TransactionType extends AbstractType
     /**
      * Builds the form.
      *
-     * This method is called for each type in the hierarchy starting from the
-     * top most type. Type extensions can further modify the form.
-     *
+     * @param FormBuilderInterface $builder The form builder
      * @param array<string, mixed> $options
      *
      * @see FormTypeExtensionInterface::buildForm()
@@ -121,6 +120,18 @@ class TransactionType extends AbstractType
         );
 
         $builder->add(
+            'amount',
+            NumberType::class,
+            [
+                'label' => 'label.amount',
+                'required' => false,
+                'attr' => [
+                    'int' => true,
+                ],
+            ]
+        );
+
+        $builder->add(
             'tags',
             TextType::class,
             [
@@ -137,6 +148,8 @@ class TransactionType extends AbstractType
 
     /**
      * Configures the options for this type.
+     *
+     * @param OptionsResolver $resolver options resolver
      */
     public function configureOptions(OptionsResolver $resolver): void
     {
@@ -148,6 +161,8 @@ class TransactionType extends AbstractType
      *
      * The block prefix defaults to the underscored short class name with
      * the "Type" suffix removed (e.g. "UserProfileType" => "user_profile").
+     *
+     * @return string|string
      */
     public function getBlockPrefix(): string
     {

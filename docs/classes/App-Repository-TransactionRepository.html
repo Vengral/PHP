@@ -176,7 +176,7 @@
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
     <a href="classes/App-Repository-TransactionRepository.html#constant_PAGINATOR_ITEMS_PER_PAGE">PAGINATOR_ITEMS_PER_PAGE</a>
     <span>
-        &nbsp;= 5                            </span>
+        &nbsp;= 10                            </span>
 </dt>
 <dd>Items per page.</dd>
 
@@ -207,6 +207,13 @@
                                 &nbsp;: int    </span>
 </dt>
 <dd>Count transaction by payment.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/App-Repository-TransactionRepository.html#method_countByUser">countByUser()</a>
+    <span>
+                                &nbsp;: int    </span>
+</dt>
+<dd>Count transaction by user.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/App-Repository-TransactionRepository.html#method_delete">delete()</a>
@@ -300,7 +307,7 @@
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
     <span class="phpdocumentor-signature__name">PAGINATOR_ITEMS_PER_PAGE</span>
-    = <span class="phpdocumentor-signature__default-value">5</span>
+    = <span class="phpdocumentor-signature__default-value">10</span>
 </code>
 
 
@@ -396,7 +403,7 @@ See https://symfony.com/doc/current/best_practices.html#configuration</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Repository/TransactionRepository.php"><a href="files/src-repository-transactionrepository.html"><abbr title="src/Repository/TransactionRepository.php">TransactionRepository.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">85</span>
+    <span class="phpdocumentor-element-found-in__line">82</span>
 
     </aside>
 
@@ -421,28 +428,6 @@ See https://symfony.com/doc/current/best_practices.html#configuration</p>
             </dl>
 
     
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                    <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">throws</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                <span class="phpdocumentor-tag-link"><abbr title="\Doctrine\ORM\NoResultException">NoResultException</abbr></span>
-                                                            
-                                             
-                                    </dd>
-                            <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">throws</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                <span class="phpdocumentor-tag-link"><abbr title="\Doctrine\ORM\NonUniqueResultException">NonUniqueResultException</abbr></span>
-                                                            
-                                             
-                                    </dd>
-                        </dl>
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
     <span class="phpdocumentor-signature__response_type">int</span>
@@ -465,7 +450,7 @@ See https://symfony.com/doc/current/best_practices.html#configuration</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Repository/TransactionRepository.php"><a href="files/src-repository-transactionrepository.html"><abbr title="src/Repository/TransactionRepository.php">TransactionRepository.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">106</span>
+    <span class="phpdocumentor-element-found-in__line">104</span>
 
     </aside>
 
@@ -490,28 +475,6 @@ See https://symfony.com/doc/current/best_practices.html#configuration</p>
             </dl>
 
     
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                    <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">throws</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                <span class="phpdocumentor-tag-link"><abbr title="\Doctrine\ORM\NoResultException">NoResultException</abbr></span>
-                                                            
-                                             
-                                    </dd>
-                            <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">throws</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                <span class="phpdocumentor-tag-link"><abbr title="\Doctrine\ORM\NonUniqueResultException">NonUniqueResultException</abbr></span>
-                                                            
-                                             
-                                    </dd>
-                        </dl>
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
     <span class="phpdocumentor-signature__response_type">int</span>
@@ -534,7 +497,7 @@ See https://symfony.com/doc/current/best_practices.html#configuration</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Repository/TransactionRepository.php"><a href="files/src-repository-transactionrepository.html"><abbr title="src/Repository/TransactionRepository.php">TransactionRepository.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">127</span>
+    <span class="phpdocumentor-element-found-in__line">126</span>
 
     </aside>
 
@@ -559,33 +522,58 @@ See https://symfony.com/doc/current/best_practices.html#configuration</p>
             </dl>
 
     
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                    <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">throws</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                <span class="phpdocumentor-tag-link"><abbr title="\Doctrine\ORM\NoResultException">NoResultException</abbr></span>
-                                                            
-                                             
-                                    </dd>
-                            <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">throws</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                <span class="phpdocumentor-tag-link"><abbr title="\Doctrine\ORM\NonUniqueResultException">NonUniqueResultException</abbr></span>
-                                                            
-                                             
-                                    </dd>
-                        </dl>
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
     <span class="phpdocumentor-signature__response_type">int</span>
             &mdash;
             <section class="phpdocumentor-description"><p>Number of transaction in payment</p>
+</section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_countByUser">
+        countByUser()
+        <a href="classes/App-Repository-TransactionRepository.html#method_countByUser" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Repository/TransactionRepository.php"><a href="files/src-repository-transactionrepository.html"><abbr title="src/Repository/TransactionRepository.php">TransactionRepository.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">148</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Count transaction by user.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                <span class="phpdocumentor-signature__name">countByUser</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/App-Entity-User.html"><abbr title="\App\Entity\User">User</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$user</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">int</span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$user</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/App-Entity-User.html"><abbr title="\App\Entity\User">User</abbr></a></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>User</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">int</span>
+            &mdash;
+            <section class="phpdocumentor-description"><p>Number of transaction in user</p>
 </section>
 
     
@@ -603,7 +591,7 @@ See https://symfony.com/doc/current/best_practices.html#configuration</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Repository/TransactionRepository.php"><a href="files/src-repository-transactionrepository.html"><abbr title="src/Repository/TransactionRepository.php">TransactionRepository.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">154</span>
+    <span class="phpdocumentor-element-found-in__line">179</span>
 
     </aside>
 
@@ -892,7 +880,7 @@ See https://symfony.com/doc/current/best_practices.html#configuration</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Repository/TransactionRepository.php"><a href="files/src-repository-transactionrepository.html"><abbr title="src/Repository/TransactionRepository.php">TransactionRepository.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">167</span>
+    <span class="phpdocumentor-element-found-in__line">192</span>
 
     </aside>
 
@@ -939,7 +927,7 @@ See https://symfony.com/doc/current/best_practices.html#configuration</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Repository/TransactionRepository.php"><a href="files/src-repository-transactionrepository.html"><abbr title="src/Repository/TransactionRepository.php">TransactionRepository.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">143</span>
+    <span class="phpdocumentor-element-found-in__line">168</span>
 
     </aside>
 
@@ -984,7 +972,7 @@ See https://symfony.com/doc/current/best_practices.html#configuration</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Repository/TransactionRepository.php"><a href="files/src-repository-transactionrepository.html"><abbr title="src/Repository/TransactionRepository.php">TransactionRepository.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">183</span>
+    <span class="phpdocumentor-element-found-in__line">208</span>
 
     </aside>
 

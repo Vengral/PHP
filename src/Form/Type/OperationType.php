@@ -19,9 +19,7 @@ class OperationType extends AbstractType
     /**
      * Builds the form.
      *
-     * This method is called for each type in the hierarchy starting from the
-     * top most type. Type extensions can further modify the form.
-     *
+     * @param FormBuilderInterface $builder The form builder
      * @param array<string, mixed> $options
      *
      * @see FormTypeExtensionInterface::buildForm()
@@ -41,6 +39,10 @@ class OperationType extends AbstractType
 
     /**
      * Configures the options for this type.
+     *
+     * @param OptionsResolver $resolver options resolver
+     *
+     * @return void|void
      */
     public function configureOptions(OptionsResolver $resolver): void
     {
@@ -52,6 +54,8 @@ class OperationType extends AbstractType
      *
      * The block prefix defaults to the underscored short class name with
      * the "Type" suffix removed (e.g. "UserProfileType" => "user_profile").
+     *
+     * @return string|string
      */
     public function getBlockPrefix(): string
     {

@@ -1,4 +1,7 @@
 <?php
+/**
+ * Category repository.
+ */
 
 namespace App\Repository;
 
@@ -52,6 +55,8 @@ class CategoryRepository extends ServiceEntityRepository
 
     /**
      * Query records like name.
+     *
+     * @param string options $name
      *
      * @return QueryBuilder Query builder
      */

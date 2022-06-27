@@ -23,11 +23,18 @@ class WalletRepository extends ServiceEntityRepository
 {
     public const PAGINATOR_ITEMS_PER_PAGE = 5;
 
+    /**
+     * @param ManagerRegistry options $registry
+     */
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Wallet::class);
     }
 
+    /**
+     * @param User options $entity
+     * @param bool options $flush
+     */
     public function add(Wallet $entity, bool $flush = true): void
     {
         $this->_em->persist($entity);
@@ -47,6 +54,10 @@ class WalletRepository extends ServiceEntityRepository
             ->orderBy('wallet.balance', 'DESC');
     }
 
+    /**
+     * @param User options $entity
+     * @param bool options $flush
+     */
     public function remove(Wallet $entity, bool $flush = true): void
     {
         $this->_em->remove($entity);

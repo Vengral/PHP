@@ -25,7 +25,7 @@ class TransactionFixtures extends AbstractBaseFixtures implements DependentFixtu
             $transaction = new Transaction();
             $transaction->setName($this->faker->sentence(3, 64));
             $transaction->setDate($this->faker->dateTimeThisYear);
-            $transaction->setAmount($this->faker->numberBetween(1, 900000));
+            $transaction->setAmount($this->faker->numberBetween(1, 90000));
             $transaction->setCreatedAt($this->faker->dateTimeBetween('-100 days', '-1 days'));
             $transaction->setUpdatedAt($this->faker->dateTimeBetween('-100 days', '-1 days'));
             $transaction->setCategory($this->getRandomReference('categories'));

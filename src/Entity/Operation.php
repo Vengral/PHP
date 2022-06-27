@@ -67,6 +67,8 @@ class Operation
 
     /**
      * Getter for Id.
+     *
+     * @return int|null options int
      */
     public function getId(): ?int
     {
@@ -75,6 +77,8 @@ class Operation
 
     /**
      * Getter for Name.
+     *
+     * @return string|null options string
      */
     public function getName(): ?string
     {
@@ -83,6 +87,8 @@ class Operation
 
     /**
      * Setter for Name.
+     *
+     * @param string options $name
      *
      * @return $this
      */
@@ -95,6 +101,8 @@ class Operation
 
     /**
      * Getter for Create At.
+     *
+     * @return DateTimeInterface|null options datetimeinterface
      */
     public function getCreatedAt(): ?DateTimeInterface
     {
@@ -103,6 +111,8 @@ class Operation
 
     /**
      * Setter for Create At.
+     *
+     * @param DateTimeInterface options $createdAt
      *
      * @return $this
      */
@@ -115,6 +125,8 @@ class Operation
 
     /**
      * Getter for Update At.
+     *
+     * @return DateTimeInterface|null options Datetimeinterface
      */
     public function getUpdatedAt(): ?DateTimeInterface
     {
@@ -123,6 +135,8 @@ class Operation
 
     /**
      * Setter for Update At.
+     *
+     * @param DateTimeInterface options $updatedAt
      *
      * @return $this
      */

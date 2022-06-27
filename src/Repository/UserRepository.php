@@ -22,6 +22,9 @@ class UserRepository extends ServiceEntityRepository
 {
     public const PAGINATOR_ITEMS_PER_PAGE = 5;
 
+    /**
+     * @param ManagerRegistry options $registry
+     */
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, User::class);
@@ -39,6 +42,10 @@ class UserRepository extends ServiceEntityRepository
             ->orderBy('user.id', 'DESC');
     }
 
+    /**
+     * @param User options $entity
+     * @param bool options $flush
+     */
     public function add(User $entity, bool $flush = true): void
     {
         $this->_em->persist($entity);
@@ -47,6 +54,10 @@ class UserRepository extends ServiceEntityRepository
         }
     }
 
+    /**
+     * @param User options $entity
+     * @param bool options $flush
+     */
     public function remove(User $entity, bool $flush = true): void
     {
         $this->_em->remove($entity);

@@ -32,6 +32,11 @@ class OperationService implements OperationServiceInterface
 
     private TransactionRepository $transactionRepository;
 
+    /**
+     * @param OperationRepository  options  $operationRepository
+     * @param TransactionRepository options $transactionRepository
+     * @param PaginatorInterface   options  $paginator
+     */
     public function __construct(OperationRepository $operationRepository, TransactionRepository $transactionRepository, PaginatorInterface $paginator)
     {
         $this->transactionRepository = $transactionRepository;
@@ -42,13 +47,14 @@ class OperationService implements OperationServiceInterface
     /**
      * Get paginated list.
      *
-     * @param int $page Page number
+     * @param int         $page Page number
+     * @param string|null $name options
      *
      * @return PaginationInterface<string, mixed> Paginated list
      */
     public function getPaginatedList(int $page, ?string $name = null): PaginationInterface
     {
-        if (null == $name) {
+        if (null === $name) {
             return $this->paginator->paginate(
                 $this->operationRepository->queryAll(),
                 $page,
@@ -70,7 +76,7 @@ class OperationService implements OperationServiceInterface
      */
     public function save(Operation $operation): void
     {
-        if (null == $operation->getId()) {
+        if (null === $operation->getId()) {
             $operation->setCreatedAt(new DateTimeImmutable());
         }
         $operation->setUpdatedAt(new DateTimeImmutable());

@@ -1556,6 +1556,11 @@ Search.appendIndex(
             "summary": "Count\u0020transaction\u0020by\u0020payment.",
             "url": "classes/App-Repository-TransactionRepository.html#method_countByPayment"
         },                {
+            "fqsen": "\\App\\Repository\\TransactionRepository\u003A\u003AcountByUser\u0028\u0029",
+            "name": "countByUser",
+            "summary": "Count\u0020transaction\u0020by\u0020user.",
+            "url": "classes/App-Repository-TransactionRepository.html#method_countByUser"
+        },                {
             "fqsen": "\\App\\Repository\\TransactionRepository\u003A\u003Asave\u0028\u0029",
             "name": "save",
             "summary": "Save\u0020entity.",
@@ -2211,6 +2216,11 @@ Search.appendIndex(
             "summary": "Can\u0020wallet\u0020be\u0020deleted\u003F",
             "url": "classes/App-Service-WalletService.html#method_canBeDeleted"
         },                {
+            "fqsen": "\\App\\Service\\WalletService\u003A\u003Adelete\u0028\u0029",
+            "name": "delete",
+            "summary": "Delete\u0020category.",
+            "url": "classes/App-Service-WalletService.html#method_delete"
+        },                {
             "fqsen": "\\App\\Service\\WalletService\u003A\u003A\u0024walletRepository",
             "name": "walletRepository",
             "summary": "Wallet\u0020repository.",
@@ -2240,6 +2250,11 @@ Search.appendIndex(
             "name": "save",
             "summary": "Save\u0020entity.",
             "url": "classes/App-Service-WalletServiceInterface.html#method_save"
+        },                {
+            "fqsen": "\\App\\Service\\WalletServiceInterface\u003A\u003AcanBeDeleted\u0028\u0029",
+            "name": "canBeDeleted",
+            "summary": "Can\u0020Category\u0020be\u0020deleted\u003F",
+            "url": "classes/App-Service-WalletServiceInterface.html#method_canBeDeleted"
         },                {
             "fqsen": "\\",
             "name": "\\",

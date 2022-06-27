@@ -6,7 +6,9 @@
 namespace App\Controller;
 
 use App\Entity\Transaction;
+use App\Entity\User;
 use App\Form\Type\TransactionType;
+use App\Repository\WalletRepository;
 use App\Service\TransactionServiceInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -37,11 +39,13 @@ class TransactionController extends AbstractController
      *
      * @param TransactionServiceInterface $transactionService Transaction service
      * @param TranslatorInterface         $translator         Translator
+     * @param WalletRepository            $walletRepository   Wallet Repository
      */
-    public function __construct(TransactionServiceInterface $transactionService, TranslatorInterface $translator)
+    public function __construct(TransactionServiceInterface $transactionService, TranslatorInterface $translator, WalletRepository $walletRepository)
     {
         $this->transactionService = $transactionService;
         $this->translator = $translator;
+        $this->walletRepository = $walletRepository;
     }
 
     /**
@@ -99,6 +103,10 @@ class TransactionController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->transactionService->save($transaction);
+            $wallet = $this->walletRepository->findOneById($transaction->getWallet()->getId())->setBalance(
+                $transaction->getWallet()->getBalance() + $transaction->getAmount()
+            );
+            $this->walletRepository->save($wallet);
 
             $this->addFlash(
                 'success',
@@ -125,6 +133,8 @@ class TransactionController extends AbstractController
     #[IsGranted('EDIT', subject: 'transaction')]
     public function edit(Request $request, Transaction $transaction): Response
     {
+        $balance = $transaction->getWallet()->getBalance();
+
         $form = $this->createForm(TransactionType::class, $transaction, [
             'method' => 'PUT',
             'action' => $this->generateUrl('transaction_edit', ['id' => $transaction->getId()]),
@@ -138,6 +148,10 @@ class TransactionController extends AbstractController
                 'success',
                 $this->translator->trans('message.edited_successfully')
             );
+            $wallet = $this->walletRepository->findOneById($transaction->getWallet()->getId())->setBalance(
+                $balance + $transaction->getAmount()
+            );
+            $this->walletRepository->save($wallet);
 
             return $this->redirectToRoute('transaction_index');
         }

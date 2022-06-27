@@ -115,6 +115,8 @@ class Wallet
 
     /**
      * Getter for Balance.
+     *
+     * @return int|null options int
      */
     public function getBalance(): ?int
     {
@@ -137,6 +139,8 @@ class Wallet
 
     /**
      * Getter for Created At.
+     *
+     * @return DateTimeInterface|null options DateTIme
      */
     public function getCreatedAt(): ?DateTimeInterface
     {
@@ -159,6 +163,8 @@ class Wallet
 
     /**
      * Getter for Updated At.
+     *
+     * @return DateTimeInterface|null options DateTime
      */
     public function getUpdatedAt(): ?DateTimeInterface
     {
@@ -179,12 +185,17 @@ class Wallet
         return $this;
     }
 
+    /**
+     * @return User|null options User
+     */
     public function getUser(): ?User
     {
         return $this->user;
     }
 
     /**
+     * @param User|null options $user
+     *
      * @return $this
      */
     public function setUser(?User $user): self

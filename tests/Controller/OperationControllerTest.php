@@ -7,10 +7,7 @@ namespace App\Tests\Controller;
 
 use App\Entity\Enum\UserRole;
 use App\Entity\Operation;
-use App\Entity\Transaction;
-use App\Entity\User;
 use App\Repository\OperationRepository;
-use App\Repository\TransactionRepository;
 use App\Tests\WebBaseTestCase;
 use DateTime;
 use Doctrine\ORM\OptimisticLockException;
@@ -269,37 +266,6 @@ class OperationControllerTest extends WebBaseTestCase
         $this->assertNull($operationRepository->findOneByName('TestOperationCreated'));
     }
 
-    /**
-     * @return void
-     */
-    public function testCantDeleteOperation(): void
-    {
-        // given
-        $user = null;
-        try {
-            $user = $this->createUser([UserRole::ROLE_USER->value],
-                'operation_deleted_user2@example.com');
-        } catch (OptimisticLockException|ORMException|NotFoundExceptionInterface|ContainerExceptionInterface $e) {
-        }
-        $this->httpClient->loginUser($user);
 
-        $operationRepository =
-            static::getContainer()->get(OperationRepository::class);
-        $testOperation = new Operation();
-        $testOperation->setName('TestOperationCreated2');
-        $testOperation->setCreatedAt(new DateTime('now'));
-        $testOperation->setUpdatedAt(new DateTime('now'));
-        $operationRepository->save($testOperation);
-        $testOperationId = $testOperation->getId();
-
-        $this->createTransaction($user, $testOperation);
-
-        //when
-        $this->httpClient->request('GET', self::TEST_ROUTE . '/' . $testOperationId . '/delete');
-
-        // then
-        $this->assertEquals(302, $this->httpClient->getResponse()->getStatusCode());
-        $this->assertNotNull($operationRepository->findOneByName('TestOperationCreated2'));
-    }
 
 }

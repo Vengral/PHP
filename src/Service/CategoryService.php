@@ -34,8 +34,9 @@ class CategoryService implements CategoryServiceInterface
     /**
      * Constructor.
      *
-     * @param CategoryRepository $categoryRepository Category repository
-     * @param PaginatorInterface $paginator          Paginator
+     * @param CategoryRepository    $categoryRepository    Category repository
+     * @param TransactionRepository $transactionRepository transaction repo
+     * @param PaginatorInterface    $paginator             paginator
      */
     public function __construct(CategoryRepository $categoryRepository, TransactionRepository $transactionRepository, PaginatorInterface $paginator)
     {
@@ -47,13 +48,14 @@ class CategoryService implements CategoryServiceInterface
     /**
      * Get paginated list.
      *
-     * @param int $page Page number
+     * @param int         $page Page number
+     * @param string|null $name user name
      *
      * @return PaginationInterface<string, mixed> Paginated list
      */
     public function getPaginatedList(int $page, ?string $name = null): PaginationInterface
     {
-        if (null == $name) {
+        if (null === $name) {
             return $this->paginator->paginate(
                 $this->categoryRepository->queryAll(),
                 $page,
@@ -75,7 +77,7 @@ class CategoryService implements CategoryServiceInterface
      */
     public function save(Category $category): void
     {
-        if (null == $category->getId()) {
+        if (null === $category->getId()) {
             $category->setCreatedAt(new DateTimeImmutable());
         }
         $category->setUpdatedAt(new DateTimeImmutable());
